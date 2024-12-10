@@ -5,27 +5,23 @@ using System;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 
-public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions
+public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMovement
 {
+    [Header("Attributes")]
     [SerializeField] private float speed;
     private PlayerControlers pControlers;
     private Rigidbody2D rigidBody;
-    private Animator animator;
-    private Vector2 inputMovement;
+    [NonSerialized] public Vector2 inputMovement;
 
     private void Awake()
     {
         pControlers = new PlayerControlers();
         rigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         pControlers.Player.SetCallbacks(this);
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
-        rigidBody.MovePosition(rigidBody.position + speed * Time.deltaTime * inputMovement.normalized);
-        animator.SetFloat("velX", inputMovement.x);
-        animator.SetFloat("velY", inputMovement.y);
+        Movement();
     }
 
     private void OnEnable()
@@ -41,5 +37,10 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions
     public void OnMovement(InputAction.CallbackContext context)
     {
         inputMovement = context.ReadValue<Vector2>();
+    }
+
+    public void Movement()
+    {
+        rigidBody.MovePosition(rigidBody.position + speed * Time.deltaTime * inputMovement.normalized);
     }
 }

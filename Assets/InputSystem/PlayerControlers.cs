@@ -149,6 +149,34 @@ public partial class @PlayerControlers: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Weapon"",
+            ""id"": ""0dfb7420-381f-4f4f-b686-27d8fcad31e3"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""b24f82d8-9b3f-4b06-b959-39e8fee74fcf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""58d6283c-9fe3-4448-8dbc-21f7b24a5d74"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -156,6 +184,9 @@ public partial class @PlayerControlers: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        // Weapon
+        m_Weapon = asset.FindActionMap("Weapon", throwIfNotFound: true);
+        m_Weapon_Shoot = m_Weapon.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,8 +290,58 @@ public partial class @PlayerControlers: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Weapon
+    private readonly InputActionMap m_Weapon;
+    private List<IWeaponActions> m_WeaponActionsCallbackInterfaces = new List<IWeaponActions>();
+    private readonly InputAction m_Weapon_Shoot;
+    public struct WeaponActions
+    {
+        private @PlayerControlers m_Wrapper;
+        public WeaponActions(@PlayerControlers wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Weapon_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_Weapon; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WeaponActions set) { return set.Get(); }
+        public void AddCallbacks(IWeaponActions instance)
+        {
+            if (instance == null || m_Wrapper.m_WeaponActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WeaponActionsCallbackInterfaces.Add(instance);
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+        }
+
+        private void UnregisterCallbacks(IWeaponActions instance)
+        {
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+        }
+
+        public void RemoveCallbacks(IWeaponActions instance)
+        {
+            if (m_Wrapper.m_WeaponActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IWeaponActions instance)
+        {
+            foreach (var item in m_Wrapper.m_WeaponActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_WeaponActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public WeaponActions @Weapon => new WeaponActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IWeaponActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
