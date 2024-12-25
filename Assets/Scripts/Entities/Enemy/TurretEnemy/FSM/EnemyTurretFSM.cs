@@ -21,7 +21,7 @@ public class EnemyTurretFSM : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-            
+            GoToState<ShotTurretState>();
         if (collision.gameObject.CompareTag("Sword"))
         {
             Hit(1);
@@ -30,13 +30,16 @@ public class EnemyTurretFSM : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //if (collision.gameObject.CompareTag("Player"))
-
+        if (collision.gameObject.CompareTag("Player"))
+            GoToState<IdleTurretState>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Proyectile"))
+        {
+            Hit(1);
+        }
             
     }
 
@@ -57,8 +60,10 @@ public class EnemyTurretFSM : MonoBehaviour
 
     public void Hit(float damage)
     {
-        /*hp -= (int)damage;
+        hp -= (int)damage;
         if (hp <= 0)
-            GoToState<DieState>();*/
+        {
+            GoToState<DieTurretState>();
+        }
     }
 }
