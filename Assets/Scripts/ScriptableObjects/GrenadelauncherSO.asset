@@ -9,6 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c514bcc204be0141aeaf77750d359b6, type: 3}
-  m_Name: FlameThrowerSO
+  m_Script: {fileID: 11500000, guid: 00b99198169894740a9ee6e415a1a4d3, type: 3}
+  m_Name: GrenadelauncherSO
   m_EditorClassIdentifier: 
+  damage: 0
+  fireRate: 5
+  cost: 0
+  prefab: {fileID: 7434110227496234821, guid: 5de1e2acaef977a4993584fd27ae60bd, type: 3}
+  weapon: {fileID: 0}
+  distanceLaunch: 10

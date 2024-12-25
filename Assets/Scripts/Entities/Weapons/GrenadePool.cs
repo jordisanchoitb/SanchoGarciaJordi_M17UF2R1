@@ -17,7 +17,6 @@ public class GrenadePool : MonoBehaviour
     {
         GameObject grenadeObject = Instantiate(grenadePrefab);
         grenadeObject.SetActive(false);
-
         grenadesPool.Push(grenadeObject);
     }
 

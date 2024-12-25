@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Sword
   - Flamethrower
+  - Rifle
+  - Grenadelauncher
+  - Obstacle
   layers:
   - Default
   - TransparentFX

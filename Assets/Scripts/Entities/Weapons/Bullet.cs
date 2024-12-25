@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float speed = 10f;
-    private float damage = 5f;
-    private float lifeTime = 2f;
+    [Header("Bullet Properties")]
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float damage = 5f;
+    [SerializeField] private float lifeTime = 2f;
 
     private Vector2 direction;
     private float spawnTime;
 
     private void OnDisable()
     {
-        GameObject.Find("Rifle").GetComponentInChildren<BulletPool>().ReturnBullet(gameObject);
+        GameObject.FindGameObjectWithTag("Rifle").GetComponentInChildren<BulletPool>().ReturnBullet(gameObject);
     }
 
     public void SetDirection(Vector2 initialDirection)
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
         this.direction = initialDirection.normalized;
         this.spawnTime = Time.time;
     }
+
 
     void Update()
     {
@@ -32,9 +34,9 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.name.Contains("Enemy"))
+        if (collision.gameObject.name.Contains("Enemy"))
         {
             Debug.Log("Hit Enemy");
         }

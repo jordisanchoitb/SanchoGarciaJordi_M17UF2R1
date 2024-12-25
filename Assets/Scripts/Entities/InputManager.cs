@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMovement
 {
@@ -42,5 +43,11 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
     public void Movement()
     {
         rigidBody.MovePosition(rigidBody.position + speed * Time.deltaTime * inputMovement.normalized);
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("InventoryScene", LoadSceneMode.Additive);
+        Time.timeScale = 0;
     }
 }

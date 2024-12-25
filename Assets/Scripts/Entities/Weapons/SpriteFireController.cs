@@ -9,25 +9,28 @@ public class SpriteFireController : MonoBehaviour
     [SerializeField] private List<Sprite> blueFireSprites = new List<Sprite>();
 
     private ParticleSystem particleSystem;
-    private WeaponManager weaponManager;
     private float timeToChangeSprite = 5f;
     private float currentTime = 0f;
 
     private void OnEnable()
     {
         currentTime = 0f;
+    }
+
+    private void OnDisable()
+    {
         ChangeDefaultSprite();
     }
 
     private void Start()
     {
         particleSystem = GetComponent<ParticleSystem>();
-        weaponManager = GetComponentInParent<WeaponManager>();
+        ChangeDefaultSprite();
     }
 
     void Update()
     {
-        if (weaponManager.IsFiring())
+        if (particleSystem.isPlaying)
         {
             currentTime += Time.deltaTime;
             if (currentTime >= timeToChangeSprite)
