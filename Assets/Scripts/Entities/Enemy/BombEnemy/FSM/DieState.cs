@@ -13,11 +13,9 @@ public class DieState : AStateSO<EnemyBombFSM>
 
     public override void OnStateExit(EnemyBombFSM enemy)
     {
-        enemy.gameObject.SetActive(false);
     }
 
     public override void OnStateUpdate(EnemyBombFSM enemy)
     {
-        enemy.gameObject.SetActive(false);
     }
 }

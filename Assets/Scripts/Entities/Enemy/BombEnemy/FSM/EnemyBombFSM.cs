@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBombFSM : MonoBehaviour
 {
     [SerializeField] private List<AStateSO<EnemyBombFSM>> states = new List<AStateSO<EnemyBombFSM>>();
 
     [SerializeField] private AStateSO<EnemyBombFSM> currentState;
-    private int hp;
+    [SerializeField] private int hp;
+    private Slider hpSlider;
 
     public int Hp { get => hp; set => hp = value; }
     public AStateSO<EnemyBombFSM> CurrentState { get => currentState; }
@@ -15,8 +17,9 @@ public class EnemyBombFSM : MonoBehaviour
 
     private void Start()
     {
-        GoToState<IdleState>();
-        hp = 10;
+        hpSlider = GetComponentInChildren<Slider>();
+        hpSlider.maxValue = this.Hp;
+        hpSlider.value = this.Hp;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,6 +42,10 @@ public class EnemyBombFSM : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             GoToState<ExploteState>();
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            Hit(1);
+        }
     }
 
     private void Update()
@@ -59,7 +66,11 @@ public class EnemyBombFSM : MonoBehaviour
     public void Hit(float damage)     
     {
         hp -= (int)damage;
+        hpSlider.value = hp;
+
         if (hp <= 0)
+        {
             GoToState<DieState>();
+        }
     }
 }

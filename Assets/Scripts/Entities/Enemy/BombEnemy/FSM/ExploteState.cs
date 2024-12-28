@@ -10,6 +10,7 @@ public class ExploteState : AStateSO<EnemyBombFSM>
 
     public override void OnStateEnter(EnemyBombFSM entityController)
     {
+        entityController.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         explosionCoroutine = entityController.StartCoroutine(Explote(entityController));
     }
 
