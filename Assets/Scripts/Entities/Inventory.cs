@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : AEntity
+public class Inventory : MonoBehaviour
 {
     public static Inventory inventory;
     public static List<AWeaponSO> weapons = new List<AWeaponSO>();
@@ -17,5 +17,6 @@ public class Inventory : AEntity
         weapons.Clear();
 
     }
+
 
 }

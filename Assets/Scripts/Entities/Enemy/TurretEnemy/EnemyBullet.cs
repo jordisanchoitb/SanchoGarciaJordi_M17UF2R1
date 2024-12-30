@@ -6,7 +6,7 @@ public class EnemyBullet : MonoBehaviour
 {
     [Header("Bullet Properties")]
     [SerializeField] private float speed = 10f;
-    [SerializeField] private float damage = 5f;
+    [SerializeField] private int damage = 2;
     [SerializeField] private float lifeTime = 2f;
 
     private Vector2 direction;
@@ -36,9 +36,9 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent<IHurt>(out var enemy) && collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit Player");
+            enemy.Hurt(damage);
         }
 
         gameObject.SetActive(false);

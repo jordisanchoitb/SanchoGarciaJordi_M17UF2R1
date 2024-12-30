@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5156153148139726252}
   - component: {fileID: 2544327393419020925}
+  - component: {fileID: 3932568516112748080}
   - component: {fileID: 1737804180184674587}
   - component: {fileID: 625088255780535230}
   - component: {fileID: 1740084415828258808}
@@ -155,7 +156,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -24391901, guid: cc362a5c0a23a0741bc7984a1d3483eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -166,6 +167,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3932568516112748080
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972098359812170254}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02d8100244c6c8c45879dd2650a990e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &1737804180184674587
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -286,7 +308,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -319,13 +341,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a35645897628623408af216cddecf326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 10
+  countCoints: 0
+  countKeys: 0
   states:
   - {fileID: 11400000, guid: ba302d2c46109b74794b292791df47dc, type: 2}
   - {fileID: 11400000, guid: c8dded0cd39e1f147a8b5c2f6e5191f2, type: 2}
   - {fileID: 11400000, guid: 31fb7abc73ef24247bdb03bbf0bace20, type: 2}
   - {fileID: 11400000, guid: bfa959c9c5b47cf46b981f6b4f7a89f1, type: 2}
   currentState: {fileID: 11400000, guid: ba302d2c46109b74794b292791df47dc, type: 2}
-  hp: 10
+  damage: 2
+  explosionRadius: 1
+  damageableLayers:
+    serializedVersion: 2
+    m_Bits: 4
 --- !u!1 &5068681871532088987
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,7 +603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -952.51, y: -539.33}
+  m_AnchoredPosition: {x: -952.51, y: -539.49}
   m_SizeDelta: {x: 159.7378, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8337073526231537582

@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyTurretFSM : MonoBehaviour
+public class EnemyTurretFSM : AEntity
 {
     [SerializeField] private List<AStateSO<EnemyTurretFSM>> states = new List<AStateSO<EnemyTurretFSM>>();
 
     [SerializeField] private AStateSO<EnemyTurretFSM> currentState;
-    [SerializeField] private int hp;
     private Slider hpSlider;
     public int Hp { get => hp; set => hp = value; }
     public AStateSO<EnemyTurretFSM> CurrentState { get => currentState; }
@@ -26,24 +25,12 @@ public class EnemyTurretFSM : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             GoToState<ShotTurretState>();
-        if (collision.gameObject.CompareTag("Sword"))
-        {
-            Hit(1);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
             GoToState<IdleTurretState>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name.Contains("Bullet"))
-        {
-            Hit(1);
-        }
     }
 
     private void Update()
@@ -61,9 +48,9 @@ public class EnemyTurretFSM : MonoBehaviour
         }
     }
 
-    public void Hit(float damage)
+    public override void Hurt(int damage)
     {
-        hp -= (int)damage;
+        hp -= damage;
         hpSlider.value = hp;
 
         if (hp <= 0)

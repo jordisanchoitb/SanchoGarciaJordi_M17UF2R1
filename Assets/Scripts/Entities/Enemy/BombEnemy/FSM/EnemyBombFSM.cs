@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyBombFSM : MonoBehaviour
+public class EnemyBombFSM : AEntity
 {
     [SerializeField] private List<AStateSO<EnemyBombFSM>> states = new List<AStateSO<EnemyBombFSM>>();
 
     [SerializeField] private AStateSO<EnemyBombFSM> currentState;
-    [SerializeField] private int hp;
+    [SerializeField] private int damage;
+    [SerializeField] private float explosionRadius = 2f;
+    [SerializeField] private LayerMask damageableLayers;
+
     private Slider hpSlider;
 
     public int Hp { get => hp; set => hp = value; }
@@ -26,10 +29,6 @@ public class EnemyBombFSM : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             GoToState<ChaseState>();
-        if (collision.gameObject.CompareTag("Sword"))
-        {
-            Hit(1);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -42,10 +41,6 @@ public class EnemyBombFSM : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             GoToState<ExploteState>();
-        if (collision.gameObject.name.Contains("Bullet"))
-        {
-            Hit(1);
-        }
     }
 
     private void Update()
@@ -63,14 +58,34 @@ public class EnemyBombFSM : MonoBehaviour
         }
     }
 
-    public void Hit(float damage)     
+    public void Explote()
     {
-        hp -= (int)damage;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, damageableLayers);
+
+        foreach (var collider in colliders)
+        {
+            if (collider.TryGetComponent<IHurt>(out var enemy) && collider.gameObject.CompareTag("Player"))
+            {
+                enemy.Hurt(damage);
+            }
+        }
+
+    }
+
+    public override void Hurt(int damage)
+    {
+        hp -= damage;
         hpSlider.value = hp;
 
         if (hp <= 0)
         {
             GoToState<DieState>();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }

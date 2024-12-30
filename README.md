@@ -10,6 +10,7 @@ RogueLike game
 - **S / Flecha abaix**: Moure's abaix
 - **Clic esquerra**: Dispara
 - **Escape**: Pausar el joc
+- **E**: Obrir l'inventari
 
 ### Descripció del joc
 **Gènere**: Roguelike
@@ -27,6 +28,8 @@ Sprite firearms by [**VladPenn**](https://vladpenn.itch.io/)
 Sprite swords by [**everlyspixelsandpens**](https://evanwritesgames.itch.io/)
 
 Sprite swords dash animations [**SpikerMan**](https://spikerman.itch.io/)
+
+Sprite Bomb Character [**Caz Creates Games**](https://caz-creates-games.itch.io/)
 
 #### FX
 Sprites fire animations by [**brullov**](https://brullov.itch.io/)

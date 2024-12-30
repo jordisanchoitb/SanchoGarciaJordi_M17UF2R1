@@ -10,12 +10,14 @@ public class ChaseState : AStateSO<EnemyBombFSM>
     public override void OnStateEnter(EnemyBombFSM entityController)
     {
         target = GameObject.Find("Player");
-        enemyMove = entityController.GetComponent<EnemyMove>();                
+        enemyMove = entityController.GetComponent<EnemyMove>();
+        entityController.GetComponent<Animator>().SetBool("PlayerTriggered", true);
     }
 
     public override void OnStateExit(EnemyBombFSM entityController)
     {
         enemyMove.StopMovement();
+        entityController.GetComponent<Animator>().SetBool("PlayerTriggered", false);
     }
 
     public override void OnStateUpdate(EnemyBombFSM entityController)

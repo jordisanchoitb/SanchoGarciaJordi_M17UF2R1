@@ -9,16 +9,6 @@ public class Player : AEntity
     public static AWeaponSO currentWeapon;
     public static Inventory inventory;
     private Slider healthBar;
-    private int MaxHp;
-
-    private void OnEnable()
-    {
-        hp = MaxHp;
-        healthBar.value = hp;
-        countCoints = 0;
-        countKeys = 0;
-    }
-
 
     private void Start()
     {
@@ -29,7 +19,6 @@ public class Player : AEntity
             healthBar = GameObject.Find("PlayerHp").GetComponent<Slider>();
             healthBar.maxValue = hp;
             healthBar.value = hp;
-            MaxHp = hp;
         }
         else
         {
@@ -37,17 +26,9 @@ public class Player : AEntity
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public override void Hurt(int damage)
     {
-        if (collision.gameObject.name.Contains("Enemy"))
-        {
-            Hit(1);
-        }
-    }
-
-    public void Hit(float damage)
-    {
-        hp -= (int)damage;
+        hp -= damage;
         healthBar.value = hp;
 
         if (hp <= 0)

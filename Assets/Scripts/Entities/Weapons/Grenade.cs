@@ -7,27 +7,27 @@ public class Grenade : MonoBehaviour
 {
     [Header("Grenade Properties")]
     [SerializeField]
-    private float damage = 20f;
+    private int damage;
     [SerializeField]
-    private float explosionRadius = 5f;
+    private float explosionRadius;
     [SerializeField]
-    private float explosionDelay = 3f;
+    private float explosionDelay;
     private float tmpexplosionDelay;
     [SerializeField]
-    private float speed = 250f;
+    private float speed;
+    [SerializeField]
+    private LayerMask damageableLayer;
     private Rigidbody2D rigidBody2D;
-    private bool isExploded = false;
+
 
     private void OnEnable()
     {
-        isExploded = false;
         tmpexplosionDelay = explosionDelay;
     }
 
     private void OnDisable()
     {
         rigidBody2D.velocity = Vector2.zero;
-        isExploded = false;
         explosionDelay = tmpexplosionDelay;
         GameObject.FindGameObjectWithTag("Grenadelauncher").GetComponentInChildren<GrenadePool>().ReturnGrenade(gameObject);
     }
@@ -54,22 +54,16 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-        if (isExploded)
-        {
-            return;
-        }
-        isExploded = true;
-        // Efecto de explosión / partícula 
-        Debug.Log("Granada explota!");
+        Debug.Log($"Explosion Radius: {explosionRadius}");
 
-        Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
+        Collider2D[] objects = Physics2D.OverlapCircleAll(rigidBody2D.position, explosionRadius, damageableLayer);
+
+        Debug.Log($"Objects: {objects.Length}");
         foreach (Collider2D obj in objects)
         {
-            var enemy = obj.GetComponent<EnemyBombFSM>();
-            if (enemy != null)
+            if (obj.gameObject.TryGetComponent<IHurt>(out var enemy) && obj.gameObject.name.Contains("Enemy"))
             {
-                Debug.Log("Enemy hit!");
-                enemy.Hit(damage);
+                enemy.Hurt(damage);
             }
         }
 
@@ -83,10 +77,10 @@ public class Grenade : MonoBehaviour
     }
 
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, explosionRadius);
+        Gizmos.DrawWireSphere(rigidBody2D.position, explosionRadius);
     }
 
 }
