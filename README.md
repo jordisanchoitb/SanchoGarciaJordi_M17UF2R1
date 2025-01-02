@@ -18,6 +18,9 @@ RogueLike game
 **Visualització**: top-down
 
 ### Credits
+#### TileSet
+Tile Set by [**RGS_Dev**](https://rgsdev.itch.io/)
+
 #### Sprites
 Sprite Player by [**Sscary**](https://sscary.itch.io/)
 
@@ -30,6 +33,16 @@ Sprite swords by [**everlyspixelsandpens**](https://evanwritesgames.itch.io/)
 Sprite swords dash animations [**SpikerMan**](https://spikerman.itch.io/)
 
 Sprite Bomb Character [**Caz Creates Games**](https://caz-creates-games.itch.io/)
+
+Sprite Turret Character [**Deep Dive Game Studio**](https://deepdivegamestudio.itch.io/)
+
+Sprite Arrow Enemy [**Kenam0**](https://kenam0.itch.io/)
+
+Sprite Coin [**SnowHex**](https://snowhex.itch.io)
+
+Sprite Key [**Frakassets**](https://frakassets.itch.io/)
+
+Sprite Lock [**Karsiori**](https://karsiori.itch.io/)
 
 #### FX
 Sprites fire animations by [**brullov**](https://brullov.itch.io/)

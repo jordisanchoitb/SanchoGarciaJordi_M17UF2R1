@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMovement
@@ -13,6 +12,8 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
     private PlayerControlers pControlers;
     private Rigidbody2D rigidBody;
     [NonSerialized] public Vector2 inputMovement;
+    public bool isInventoryOpen;
+    public bool isPauseMenuOpen;
 
     private void Awake()
     {
@@ -42,12 +43,54 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
 
     public void Movement()
     {
+        if (isInventoryOpen)
+            return;
         rigidBody.MovePosition(rigidBody.position + speed * Time.deltaTime * inputMovement.normalized);
     }
 
     public void OnInventory(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene("InventoryScene", LoadSceneMode.Additive);
-        Time.timeScale = 0;
+        if (context.started)
+        {
+            if (isInventoryOpen)
+            {
+                SceneManager.UnloadSceneAsync("InventoryScene");
+                Time.timeScale = 1;
+                isInventoryOpen = false;
+            }
+            else
+            {
+                SceneManager.LoadScene("InventoryScene", LoadSceneMode.Additive);
+                Time.timeScale = 0;
+                isInventoryOpen = true;
+            }
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (isInventoryOpen)
+            {
+                SceneManager.UnloadSceneAsync("InventoryScene");
+                Time.timeScale = 1;
+                isInventoryOpen = false;
+            } else
+            {
+                if (isPauseMenuOpen)
+                {
+                    SceneManager.UnloadSceneAsync("PauseMenuScene");
+                    Time.timeScale = 1;
+                    isPauseMenuOpen = false;
+                }
+                else
+                {
+                    SceneManager.LoadScene("PauseMenuScene", LoadSceneMode.Additive);
+                    Time.timeScale = 0;
+                    isPauseMenuOpen = true;
+                }
+            }
+        }
     }
 }

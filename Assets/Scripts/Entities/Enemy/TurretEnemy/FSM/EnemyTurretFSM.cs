@@ -8,16 +8,30 @@ public class EnemyTurretFSM : AEntity
     [SerializeField] private List<AStateSO<EnemyTurretFSM>> states = new List<AStateSO<EnemyTurretFSM>>();
 
     [SerializeField] private AStateSO<EnemyTurretFSM> currentState;
+
+    private GameObject gameManager;
     private Slider hpSlider;
+    private string droppeable;
+
     public int Hp { get => hp; set => hp = value; }
+    
     public AStateSO<EnemyTurretFSM> CurrentState { get => currentState; }
     public List<AStateSO<EnemyTurretFSM>> States { get => states; }
+
+    private void OnEnable()
+    {
+        countCoints = Random.Range(1, 2);
+        countKeys = Random.Range(0, 1);
+        droppeable = Random.Range(0, 2) % 2 == 0 ? "Key" : "Coin";
+
+    }
 
     private void Start()
     {
         hpSlider = GetComponentInChildren<Slider>();
         hpSlider.maxValue = this.Hp;
         hpSlider.value = this.Hp;
+        gameManager = GameObject.Find("GameManager");
         
     }
 
@@ -56,6 +70,36 @@ public class EnemyTurretFSM : AEntity
         if (hp <= 0)
         {
             GoToState<DieTurretState>();
+            Drop();
+
         }
+    }
+
+    public void Drop()
+    {
+        if (droppeable == "Coin")
+        {
+            for (int i = 0; i < countCoints; i++)
+            {
+                Vector3 positionRandom = transform.position +
+                    new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+
+                GameObject coin = gameManager.GetComponent<ObjectCoinPool>().GetObject();
+                coin.transform.position = positionRandom;
+
+            }
+        }
+        else if (droppeable == "Key")
+        {
+            for (int i = 0; i < countKeys; i++)
+            {
+                Vector3 positionRandom = transform.position +
+                    new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+
+                GameObject key = gameManager.GetComponent<ObjectKeyPool>().GetObject();
+                key.transform.position = positionRandom;
+            }
+        }
+
     }
 }

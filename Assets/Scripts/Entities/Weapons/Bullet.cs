@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,12 @@ public class Bullet : MonoBehaviour
 
     private void OnDisable()
     {
-        GameObject.FindGameObjectWithTag("Rifle").GetComponentInChildren<BulletPool>().ReturnBullet(gameObject);
+        try { 
+            GameObject.FindGameObjectWithTag("Rifle").GetComponentInChildren<BulletPool>().ReturnBullet(gameObject);
+        } catch (NullReferenceException)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void SetDirection(Vector2 initialDirection)

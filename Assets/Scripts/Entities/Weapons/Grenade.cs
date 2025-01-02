@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class Grenade : MonoBehaviour
@@ -27,9 +27,15 @@ public class Grenade : MonoBehaviour
 
     private void OnDisable()
     {
-        rigidBody2D.velocity = Vector2.zero;
-        explosionDelay = tmpexplosionDelay;
-        GameObject.FindGameObjectWithTag("Grenadelauncher").GetComponentInChildren<GrenadePool>().ReturnGrenade(gameObject);
+        try
+        {
+            rigidBody2D.velocity = Vector2.zero;
+            explosionDelay = tmpexplosionDelay;
+            GameObject.FindGameObjectWithTag("Grenadelauncher").GetComponentInChildren<GrenadePool>().ReturnGrenade(gameObject);
+        } catch (NullReferenceException)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Awake()
@@ -39,7 +45,7 @@ public class Grenade : MonoBehaviour
 
     public void Launch(Vector3 targetposition)
     {
-        Vector3 moveDirection = (targetposition - transform.position).normalized;
+        Vector3 moveDirection = targetposition.normalized;
         rigidBody2D.velocity = moveDirection * speed;
     }
 
@@ -54,16 +60,18 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
-        Debug.Log($"Explosion Radius: {explosionRadius}");
+        Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, explosionRadius, damageableLayer);
 
-        Collider2D[] objects = Physics2D.OverlapCircleAll(rigidBody2D.position, explosionRadius, damageableLayer);
-
-        Debug.Log($"Objects: {objects.Length}");
         foreach (Collider2D obj in objects)
         {
             if (obj.gameObject.TryGetComponent<IHurt>(out var enemy) && obj.gameObject.name.Contains("Enemy"))
             {
-                enemy.Hurt(damage);
+                Vector2 closestPoint = obj.ClosestPoint(transform.position);
+                float distance = Vector2.Distance(closestPoint, transform.position);
+
+                int damagePercent = (int)Mathf.InverseLerp(explosionRadius, 0, distance);
+
+                enemy.Hurt(damagePercent * damage);
             }
         }
 
@@ -80,7 +88,7 @@ public class Grenade : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(rigidBody2D.position, explosionRadius);
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 
 }

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static Inventory inventory;
-    public static List<AWeaponSO> weapons = new List<AWeaponSO>();
+    public List<AWeaponSO> weapons = new List<AWeaponSO>();
+
+    private void Start()
+    {
+              
+    }
 
     public void AddWeapon(AWeaponSO weapon)
     {

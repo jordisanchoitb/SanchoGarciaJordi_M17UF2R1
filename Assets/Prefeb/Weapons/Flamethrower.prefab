@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6989156855438950682}
   - component: {fileID: 4667575602478649180}
   - component: {fileID: 5161498509209022067}
+  - component: {fileID: 476682478218867255}
   m_Layer: 2
   m_Name: Flamethrower
   m_TagString: Flamethrower
@@ -99,6 +100,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFireWeapon: 1
+--- !u!114 &476682478218867255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6644071949526708044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6b873aac0696148975e330cd7bdc22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &7661931660255374265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3863,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.14
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3957,7 +3971,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 8
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5

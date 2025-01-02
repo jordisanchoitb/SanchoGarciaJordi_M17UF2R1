@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 [CreateAssetMenu(fileName = "ShotTurretState", menuName = "ScriptableObjects/Enemy/TurretEnemy/ShotTurretState")]
 
 public class ShotTurretState : AStateSO<EnemyTurretFSM>
@@ -8,6 +9,7 @@ public class ShotTurretState : AStateSO<EnemyTurretFSM>
     private Transform player;
     private BulletPool bulletPool;
     private Transform firePoint; 
+    private SpriteRenderer spriteRenderer;
     private float fireRate = 1f;
     private float fireCooldown;
     [SerializeField] private LayerMask obstacleMask;
@@ -15,6 +17,7 @@ public class ShotTurretState : AStateSO<EnemyTurretFSM>
     {
         player = GameObject.Find("Player").transform;
         bulletPool = GameObject.Find("GameManager").GetComponent<BulletPool>();
+        spriteRenderer = entityController.GetComponent<SpriteRenderer>();
         firePoint = entityController.GetComponentInChildren<Transform>();
     }
     
@@ -33,6 +36,16 @@ public class ShotTurretState : AStateSO<EnemyTurretFSM>
             {
                 Shoot();
                 fireCooldown = fireRate;
+            }
+            if (player.transform.position.x > entityController.transform.position.x)
+            {
+                // El jugador está a la derecha
+                spriteRenderer.flipX = false;
+            }
+            else
+            {
+                // El jugador está a la izquierda
+                spriteRenderer.flipX = true;
             }
         }
     }
@@ -62,7 +75,7 @@ public class ShotTurretState : AStateSO<EnemyTurretFSM>
         {
             // Posiciona y rota la bala en el punto de disparo
             bullet.transform.position = firePoint.position;
-            bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, player.position - firePoint.position);
+            bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, player.position - firePoint.position) * Quaternion.Euler(0, 0, 90);
 
             // Activa la bala
             bullet.SetActive(true);

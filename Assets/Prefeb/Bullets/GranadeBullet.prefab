@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  explosionRadius: 0.5
+  explosionRadius: 1
   explosionDelay: 3
   speed: 10
   damageableLayer:
