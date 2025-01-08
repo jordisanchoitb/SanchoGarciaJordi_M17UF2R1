@@ -13,6 +13,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<ICollect>(out var player))
         {
+            AudioManager.audioManager.PlaySoundEffectCollectCoin();
             player.Collect(gameObject);
             gameObject.SetActive(false);
         }

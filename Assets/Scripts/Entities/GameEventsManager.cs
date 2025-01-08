@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameEventsManager : MonoBehaviour
 {
     public static GameEventsManager gameEventsManager;
-    void Start()
+    void Awake()
     {
         if (gameEventsManager == null)
         {

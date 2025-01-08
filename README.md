@@ -18,6 +18,15 @@ RogueLike game
 **Visualització**: top-down
 
 ### Credits
+#### SFX
+Loop music by [**Sergei Chetvertnykh**](https://pixabay.com/es/users/sergequadrado-24990007/) from [**Pixabay**](https://pixabay.com/sound-effects/)
+
+Collect coin by [**Chieuk**](https://pixabay.com/es/users/chieuk-46505609/) from [**Pixabay**](https://pixabay.com/sound-effects/) 
+
+Effect explosion grenade by [**Freesound_community**](https://pixabay.com/es/users/freesound_community-46691455/) from [**Pixabay**](https://pixabay.com/sound-effects/) 
+
+Effect rifle shot by [**Freesound_community**](https://pixabay.com/es/users/freesound_community-46691455/) from [**Pixabay**](https://pixabay.com/sound-effects/) 
+
 #### TileSet
 Tile Set by [**RGS_Dev**](https://rgsdev.itch.io/)
 

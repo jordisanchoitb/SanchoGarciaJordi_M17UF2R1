@@ -50,7 +50,6 @@ public class WeaponManager : MonoBehaviour, PlayerControlers.IWeaponActions
             weaponSO.Weapon.transform.position = transform.position + new Vector3(0,0.87f); // Asegúrate de colocarla correctamente
             weaponSO.Weapon.transform.rotation = Quaternion.identity;
             weaponSO.Weapon.SetActive(true); // Activa el arma
-
         }
     }
 

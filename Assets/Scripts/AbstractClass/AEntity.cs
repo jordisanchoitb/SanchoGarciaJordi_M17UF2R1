@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class AEntity : MonoBehaviour, IHurt
 {
     public int hp;
+    public int maxHp;
     public int countCoints;
     public int countKeys;
 

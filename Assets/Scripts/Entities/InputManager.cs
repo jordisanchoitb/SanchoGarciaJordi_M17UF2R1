@@ -13,7 +13,6 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
     private Rigidbody2D rigidBody;
     [NonSerialized] public Vector2 inputMovement;
     public bool isInventoryOpen;
-    public bool isPauseMenuOpen;
 
     private void Awake()
     {
@@ -78,17 +77,17 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
                 isInventoryOpen = false;
             } else
             {
-                if (isPauseMenuOpen)
+                if (Player.IsPaused)
                 {
                     SceneManager.UnloadSceneAsync("PauseMenuScene");
                     Time.timeScale = 1;
-                    isPauseMenuOpen = false;
+                    Player.IsPaused = false;
                 }
                 else
                 {
                     SceneManager.LoadScene("PauseMenuScene", LoadSceneMode.Additive);
                     Time.timeScale = 0;
-                    isPauseMenuOpen = true;
+                    Player.IsPaused = true;
                 }
             }
         }

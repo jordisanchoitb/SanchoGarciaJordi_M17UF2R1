@@ -18,6 +18,8 @@ public class Grenade : MonoBehaviour
     [SerializeField]
     private LayerMask damageableLayer;
     private Rigidbody2D rigidBody2D;
+    //[SerializeField] private float maxPushForce;
+    public float pushForce = 1.2f;
 
 
     private void OnEnable()
@@ -60,18 +62,17 @@ public class Grenade : MonoBehaviour
 
     private void Explode()
     {
+        AudioManager.audioManager.PlaySoundEffectExplosionGrenade();
+
         Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, explosionRadius, damageableLayer);
 
         foreach (Collider2D obj in objects)
         {
             if (obj.gameObject.TryGetComponent<IHurt>(out var enemy) && obj.gameObject.name.Contains("Enemy"))
             {
-                Vector2 closestPoint = obj.ClosestPoint(transform.position);
-                float distance = Vector2.Distance(closestPoint, transform.position);
+                enemy.Hurt(/*damagePercent **/ damage);
 
-                int damagePercent = (int)Mathf.InverseLerp(explosionRadius, 0, distance);
-
-                enemy.Hurt(damagePercent * damage);
+                ApplyPush(transform.position, obj.GetComponent<Rigidbody2D>());
             }
         }
 
@@ -91,4 +92,14 @@ public class Grenade : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 
+    public void ApplyPush(Vector2 origin, Rigidbody2D target)
+    {
+        if (target == null) return;
+
+        // Calcular la dirección del empuje desde el origen hacia el objeto
+        Vector2 pushDirection = (target.position - origin).normalized;
+
+        // Aplicar la fuerza al Rigidbody2D del objeto
+        target.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+    }
 }

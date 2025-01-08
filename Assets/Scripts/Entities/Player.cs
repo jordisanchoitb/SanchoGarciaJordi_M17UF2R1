@@ -13,6 +13,8 @@ public class Player : AEntity, ICollect
     private Slider healthBar;
     private TextMeshProUGUI textCountCoins;
     private TextMeshProUGUI textCountKeys;
+    private Animator animator;
+    public static bool IsPaused;
 
     private void Start()
     {
@@ -25,6 +27,8 @@ public class Player : AEntity, ICollect
             textCountKeys = GameObject.Find("TextCountKeys").GetComponent<TextMeshProUGUI>();
             healthBar.maxValue = hp;
             healthBar.value = hp;
+            maxHp = hp;
+            IsPaused = false;
 
             if (GameEventsManager.gameEventsManager != null)
             {
@@ -43,6 +47,12 @@ public class Player : AEntity, ICollect
         {
             GameEventsManager.gameEventsManager.OnDoorInteracted -= CheckKeysForDoor;
         }
+        hp = maxHp;
+        healthBar.value = hp;
+        countCoints = 0;
+        textCountCoins.text = countCoints.ToString();
+        countKeys = 0;
+        textCountKeys.text = countKeys.ToString();
     }
 
     public override void Hurt(int damage)

@@ -25,6 +25,8 @@ public class RifleSO : AWeaponSO
             bullet.GetComponent<Bullet>().SetDirection(Weapon.GetComponentInChildren<Transform>().right);
 
             nextFireTime = Time.time + 1f / fireRate;
+
+            AudioManager.audioManager.PlaySoundEffectShotRifle();
         }
     }
 
