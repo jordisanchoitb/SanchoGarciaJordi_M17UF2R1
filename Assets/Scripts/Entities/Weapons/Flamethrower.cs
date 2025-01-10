@@ -12,7 +12,6 @@ public class Flamethrower : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Collided with " + other.name);
         if (other.TryGetComponent<IHurt>(out var enemy))
         {
             enemy.Hurt(damage);

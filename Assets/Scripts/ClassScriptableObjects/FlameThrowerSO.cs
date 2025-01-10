@@ -9,7 +9,6 @@ public class FlameThrowerSO : AWeaponSO
     {
         Weapon.GetComponentInChildren<ParticleSystem>().Play();
     }
-
     public override void Stop()
     {
         Weapon.GetComponentInChildren<ParticleSystem>().Stop();

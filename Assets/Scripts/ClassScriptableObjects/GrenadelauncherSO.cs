@@ -6,8 +6,12 @@ using UnityEngine;
 public class GrenadelauncherSO : AWeaponSO
 {
     private const float NINETEEN = 90f;
-    private float nextFireTime;
+    [SerializeField] private float nextFireTime = 0f;
     [SerializeField] private float distanceLaunch;
+    private void OnEnable()
+    {
+        nextFireTime = 0f;
+    }
     public override void Shoot()
     {
         if (Time.time >= nextFireTime)
