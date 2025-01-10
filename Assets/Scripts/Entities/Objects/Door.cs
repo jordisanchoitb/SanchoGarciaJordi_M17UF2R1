@@ -26,6 +26,7 @@ public class Door : MonoBehaviour
         {
             isOpened = true;
             animator.SetTrigger("Open");
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }

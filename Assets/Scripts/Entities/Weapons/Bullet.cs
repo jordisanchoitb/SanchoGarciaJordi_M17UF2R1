@@ -46,7 +46,6 @@ public class Bullet : MonoBehaviour
         {
             enemy.Hurt(damage);
         }
-        Debug.Log("Bullet collision with " + collision.gameObject.name);
         gameObject.SetActive(false);
     }
 }

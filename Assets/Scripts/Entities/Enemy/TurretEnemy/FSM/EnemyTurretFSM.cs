@@ -13,7 +13,7 @@ public class EnemyTurretFSM : AEntity
     private Slider hpSlider;
     private string droppeable;
 
-    public int Hp { get => hp; set => hp = value; }
+    public float Hp { get => hp; set => hp = value; }
     
     public AStateSO<EnemyTurretFSM> CurrentState { get => currentState; }
     public List<AStateSO<EnemyTurretFSM>> States { get => states; }
@@ -62,7 +62,7 @@ public class EnemyTurretFSM : AEntity
         }
     }
 
-    public override void Hurt(int damage)
+    public override void Hurt(float damage)
     {
         hp -= damage;
         hpSlider.value = hp;

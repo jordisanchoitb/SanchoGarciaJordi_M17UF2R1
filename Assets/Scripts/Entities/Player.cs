@@ -55,7 +55,7 @@ public class Player : AEntity, ICollect
         textCountKeys.text = countKeys.ToString();
     }
 
-    public override void Hurt(int damage)
+    public override void Hurt(float damage)
     {
         hp -= damage;
         healthBar.value = hp;

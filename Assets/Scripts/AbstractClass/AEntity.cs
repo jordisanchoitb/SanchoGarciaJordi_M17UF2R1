@@ -5,10 +5,10 @@ using UnityEngine;
 
 public abstract class AEntity : MonoBehaviour, IHurt
 {
-    public int hp;
-    public int maxHp;
+    public float hp;
+    public float maxHp;
     public int countCoints;
     public int countKeys;
 
-    public abstract void Hurt(int damage);
+    public abstract void Hurt(float damage);
 }
