@@ -32,4 +32,9 @@ public class ObjectKeyPool : MonoBehaviour
         obj.SetActive(false);
         this.objects.Push(obj);
     }
+
+    public void Clear()
+    {
+        this.objects.Clear();
+    }
 }

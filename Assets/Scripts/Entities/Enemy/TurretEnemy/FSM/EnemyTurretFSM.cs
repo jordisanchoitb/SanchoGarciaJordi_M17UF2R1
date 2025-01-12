@@ -12,9 +12,10 @@ public class EnemyTurretFSM : AEntity
     private GameObject gameManager;
     private Slider hpSlider;
     private string droppeable;
+    private Coroutine stopForceCoroutine;
 
+    public bool notInRoom = false;
     public float Hp { get => hp; set => hp = value; }
-    
     public AStateSO<EnemyTurretFSM> CurrentState { get => currentState; }
     public List<AStateSO<EnemyTurretFSM>> States { get => states; }
 
@@ -73,6 +74,18 @@ public class EnemyTurretFSM : AEntity
             Drop();
 
         }
+    }
+
+    public void StartCoroutineStopVelocity()
+    {
+        stopForceCoroutine = StartCoroutine(StopForceObject(GetComponent<Rigidbody2D>()));
+    }
+
+    private IEnumerator StopForceObject(Rigidbody2D target)
+    {
+        yield return new WaitForSeconds(3f);
+        target.velocity = Vector2.zero;
+        StopCoroutine(stopForceCoroutine);
     }
 
     public void Drop()

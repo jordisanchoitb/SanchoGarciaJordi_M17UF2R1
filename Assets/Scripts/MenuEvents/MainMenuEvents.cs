@@ -23,6 +23,16 @@ public class MainMenuEvents : MonoBehaviour
     public void PlayRogueLike()
     {
         SceneManager.LoadScene(1);
+        if (Player.player != null)
+        {
+            Player.player.gameObject.SetActive(true);
+        }
+        if (GameManager.gameManager != null)
+        {
+            GameManager.gameManager.GetComponent<BulletPool>().Clear();
+            GameManager.gameManager.GetComponent<ObjectCoinPool>().Clear();
+            GameManager.gameManager.GetComponent<ObjectKeyPool>().Clear();
+        }
     }
 
     public void ExitGame()

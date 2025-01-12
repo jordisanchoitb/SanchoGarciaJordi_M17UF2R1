@@ -5,7 +5,8 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     public float damage = 1;
-    public float pushForce = 1.1f;
+    public float pushForce = 1.3f;
+    private Coroutine stopForceCoroutine;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,5 +26,15 @@ public class Sword : MonoBehaviour
 
         // Aplicar la fuerza al Rigidbody2D del objeto
         target.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+
+        stopForceCoroutine = StartCoroutine(StopForceObject(target));
+
+    }
+
+    private IEnumerator StopForceObject(Rigidbody2D target)
+    {
+        yield return new WaitForSeconds(1.5f);
+        target.velocity = Vector2.zero;
+        StopCoroutine(stopForceCoroutine);
     }
 }

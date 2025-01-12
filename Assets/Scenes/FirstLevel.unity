@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 3, y: 0}
@@ -379,16 +379,10 @@ Transform:
   m_GameObject: {fileID: 114724016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0013, y: -0.07, z: 0}
-  m_LocalScale: {x: 19.320446, y: 10.91071, z: 6.572716}
+  m_LocalPosition: {x: -0.0013, y: -0.069658, z: 0}
+  m_LocalScale: {x: 17.271126, y: 9.753411, z: 5.8755484}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 178767785}
-  - {fileID: 1372649307}
-  - {fileID: 1539312429}
-  - {fileID: 1740010168}
-  - {fileID: 194647749}
-  - {fileID: 540362234}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114724019
@@ -452,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 0.1, y: 0}
@@ -570,7 +564,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -591,11 +585,11 @@ Transform:
   m_GameObject: {fileID: 178767782}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.19121855, y: 0.01649755, z: 0}
-  m_LocalScale: {x: 0.47811794, y: 0.042844087, z: 0.26357022}
+  m_LocalPosition: {x: -8.107246, y: -3.8432326, z: 0.96588874}
+  m_LocalScale: {x: 4.663281, y: 0.73996556, z: 1.5486196}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114724018}
+  m_Father: {fileID: 503115597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &178767786
 BoxCollider2D:
@@ -766,11 +760,11 @@ Transform:
   m_GameObject: {fileID: 194647746}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0015546224, y: 0.5105075, z: 0}
-  m_LocalScale: {x: 1.0098667, y: 0.021099, z: 0.26357022}
+  m_LocalPosition: {x: -11.436656, y: 0.97505, z: 0.96588874}
+  m_LocalScale: {x: 17.441536, y: 0.20578721, z: 1.5486196}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114724018}
+  m_Father: {fileID: 503115597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &194647750
 BoxCollider2D:
@@ -905,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 0.1, y: 0}
@@ -1298,7 +1292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 3, y: 0}
@@ -1356,6 +1350,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &503115596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503115597}
+  m_Layer: 0
+  m_Name: Wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &503115597
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503115596}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.408506, y: 3.934482, z: -0.96588874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 178767785}
+  - {fileID: 1372649307}
+  - {fileID: 1539312429}
+  - {fileID: 1740010168}
+  - {fileID: 194647749}
+  - {fileID: 540362234}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540362231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,11 +1468,11 @@ Transform:
   m_GameObject: {fileID: 540362231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0015546224, y: -0.50684136, z: 0}
-  m_LocalScale: {x: 1.0098667, y: 0.021099, z: 0.26357022}
+  m_LocalPosition: {x: -11.436656, y: -8.947573, z: 0.96588874}
+  m_LocalScale: {x: 17.441536, y: 0.20578721, z: 1.5486196}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114724018}
+  m_Father: {fileID: 503115597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &540362235
 BoxCollider2D:
@@ -1576,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 1, y: 0}
@@ -1901,7 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 4, y: 0}
@@ -2004,7 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 0.1, y: 0}
@@ -2107,7 +2138,7 @@ RectTransform:
   - {fileID: 700906853}
   - {fileID: 2001084021}
   - {fileID: 1430030263}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1640389437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2159,7 +2190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 1, y: 0}
@@ -2448,7 +2479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 4, y: 0}
@@ -2823,7 +2854,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1354907476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c58036c0f334b3419a3f7713ae1329a, type: 3}
   m_Name: 
@@ -2890,7 +2921,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2911,11 +2942,11 @@ Transform:
   m_GameObject: {fileID: 1372649304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.16686282, y: 0.021996735, z: 0}
-  m_LocalScale: {x: 0.47811794, y: 0.042844087, z: 0.26357022}
+  m_LocalPosition: {x: -14.291716, y: -3.7895968, z: 0.96588874}
+  m_LocalScale: {x: 4.663281, y: 0.73996556, z: 1.5486196}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114724018}
+  m_Father: {fileID: 503115597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1372649308
 BoxCollider2D:
@@ -3050,7 +3081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 4, y: 0}
@@ -3396,8 +3427,8 @@ Transform:
   m_GameObject: {fileID: 1536832147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.64, y: -6.222231, z: -1.7898449}
-  m_LocalScale: {x: 6.188564, y: 6.188564, z: 6.188564}
+  m_LocalPosition: {x: -30.185, y: -6.4736, z: -1.7898}
+  m_LocalScale: {x: 3.5520382, y: 3.5520382, z: 3.5520382}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 230276281}
@@ -3487,11 +3518,11 @@ Transform:
   m_GameObject: {fileID: 1539312426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.5083616, y: 0.00025, z: 0}
-  m_LocalScale: {x: 1.041431, y: 0.011929399, z: 0.26357022}
+  m_LocalPosition: {x: -20.189783, y: -4.001702, z: 0.96588874}
+  m_LocalScale: {x: 10.157504, y: 0.20603417, z: 1.5486196}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114724018}
+  m_Father: {fileID: 503115597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1539312430
 BoxCollider2D:
@@ -3606,8 +3637,8 @@ Transform:
   m_GameObject: {fileID: 1551380073}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: -6.222231, z: -1.7898449}
-  m_LocalScale: {x: 6.188564, y: 6.188564, z: 6.188564}
+  m_LocalPosition: {x: -9.7271, y: -6.4736, z: -1.7898}
+  m_LocalScale: {x: 3.5520382, y: 3.5520382, z: 3.5520382}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 922479936}
@@ -3661,7 +3692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 3, y: 0}
@@ -3829,7 +3860,8 @@ Transform:
   m_LocalPosition: {x: 0.3, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 940456926}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1640389438
@@ -4021,7 +4053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 1, y: 0}
@@ -4288,11 +4320,11 @@ Transform:
   m_GameObject: {fileID: 1740010165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.5083615, y: -0.0027495918, z: 0}
-  m_LocalScale: {x: 1.0354241, y: 0.011929399, z: 0.26357022}
+  m_LocalPosition: {x: -2.6298304, y: -4.030958, z: 0.96588874}
+  m_LocalScale: {x: 10.098916, y: 0.20603417, z: 1.5486196}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114724018}
+  m_Father: {fileID: 503115597}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1740010169
 BoxCollider2D:
@@ -4407,8 +4439,8 @@ Transform:
   m_GameObject: {fileID: 1782351762}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -45.64, y: 13.83, z: -1.7898449}
-  m_LocalScale: {x: 6.188564, y: 6.188564, z: 6.188564}
+  m_LocalPosition: {x: -30.185, y: 5.0357, z: -1.7898}
+  m_LocalScale: {x: 3.5520382, y: 3.5520382, z: 3.5520382}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 142002087}
@@ -4462,7 +4494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 0.1, y: 0}
@@ -4765,7 +4797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 1, y: 0}
@@ -4816,7 +4848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 4, y: 0}
@@ -5114,8 +5146,8 @@ Transform:
   m_GameObject: {fileID: 2086984198}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: 13.83, z: -1.7898449}
-  m_LocalScale: {x: 6.188564, y: 6.188564, z: 6.188564}
+  m_LocalPosition: {x: -9.7271, y: 5.0357, z: -1.7898}
+  m_LocalScale: {x: 3.5520382, y: 3.5520382, z: 3.5520382}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1837684450}
@@ -5303,7 +5335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba92eb4ff1e605347919922ddd8be959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 1354907479}
+  cameraTransform: {fileID: 1640389437}
   spriteWidth: 0
   spriteHeight: 0
   parallaxMultiplier: {x: 3, y: 0}
@@ -5375,11 +5407,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8109451567384389858, guid: e7e0466f2359c3f40844ca932efcd86b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.07
       objectReference: {fileID: 0}
     - target: {fileID: 8109451567384389858, guid: e7e0466f2359c3f40844ca932efcd86b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 4.39
       objectReference: {fileID: 0}
     - target: {fileID: 8109451567384389858, guid: e7e0466f2359c3f40844ca932efcd86b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5553,11 +5585,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1354907479}
-  - {fileID: 940456926}
   - {fileID: 2019927580}
   - {fileID: 1961146644}
   - {fileID: 348927483}
   - {fileID: 114724018}
+  - {fileID: 503115597}
   - {fileID: 1640389437}
   - {fileID: 8259417195385809527}
   - {fileID: 8596407082702916170}

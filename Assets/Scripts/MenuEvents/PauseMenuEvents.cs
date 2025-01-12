@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuEvents : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void ReturnGame()
     {
         Time.timeScale = 1;

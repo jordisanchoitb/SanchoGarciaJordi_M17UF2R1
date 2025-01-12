@@ -32,4 +32,9 @@ public class BulletPool : MonoBehaviour
         bullet.SetActive(false);
         this.bullets.Push(bullet);
     }
+
+    public void Clear()
+    {
+        this.bullets.Clear();
+    }
 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : AEntity, ICollect
@@ -15,6 +16,20 @@ public class Player : AEntity, ICollect
     private TextMeshProUGUI textCountKeys;
     private Animator animator;
     public static bool IsPaused;
+
+    private void OnEnable()
+    {
+        if (player != null)
+        {
+            player.transform.position = new Vector3(0, 0, 0);
+            hp = maxHp;
+            healthBar.value = hp;
+            countCoints = 0;
+            textCountCoins.text = countCoints.ToString();
+            countKeys = 0;
+            textCountKeys.text = countKeys.ToString();
+        }
+    }
 
     private void Start()
     {
@@ -47,12 +62,6 @@ public class Player : AEntity, ICollect
         {
             GameEventsManager.gameEventsManager.OnDoorInteracted -= CheckKeysForDoor;
         }
-        hp = maxHp;
-        healthBar.value = hp;
-        countCoints = 0;
-        textCountCoins.text = countCoints.ToString();
-        countKeys = 0;
-        textCountKeys.text = countKeys.ToString();
     }
 
     public override void Hurt(float damage)
@@ -63,6 +72,7 @@ public class Player : AEntity, ICollect
         if (hp <= 0)
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene("DieMenu", LoadSceneMode.Additive);
         }
     }
 

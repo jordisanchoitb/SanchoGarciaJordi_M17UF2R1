@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 627995360}
   - component: {fileID: 627995363}
   - component: {fileID: 627995364}
+  - component: {fileID: 627995365}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  isInventoryOpen: 0
 --- !u!50 &627995364
 Rigidbody2D:
   serializedVersion: 4
@@ -362,6 +364,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &627995365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627995359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612bfd84a9284e64d9fa2714f20a0a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107692260
 GameObject:
   m_ObjectHideFlags: 0

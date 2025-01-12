@@ -7,7 +7,7 @@ public class Grenade : MonoBehaviour
 {
     [Header("Grenade Properties")]
     [SerializeField]
-    private int damage;
+    private float damage;
     [SerializeField]
     private float explosionRadius;
     [SerializeField]
@@ -18,9 +18,8 @@ public class Grenade : MonoBehaviour
     [SerializeField]
     private LayerMask damageableLayer;
     private Rigidbody2D rigidBody2D;
-    //[SerializeField] private float maxPushForce;
     public float pushForce = 1.2f;
-
+    private Coroutine stopForceCoroutine;
 
     private void OnEnable()
     {
@@ -70,7 +69,7 @@ public class Grenade : MonoBehaviour
         {
             if (obj.gameObject.TryGetComponent<IHurt>(out var enemy) && obj.gameObject.name.Contains("Enemy"))
             {
-                enemy.Hurt(/*damagePercent **/ damage);
+                enemy.Hurt(damage);
 
                 ApplyPush(transform.position, obj.GetComponent<Rigidbody2D>());
             }
@@ -101,5 +100,14 @@ public class Grenade : MonoBehaviour
 
         // Aplicar la fuerza al Rigidbody2D del objeto
         target.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
+        
+        stopForceCoroutine = StartCoroutine(StopForceObject(target));
+    }
+
+    private IEnumerator StopForceObject(Rigidbody2D target)
+    {
+        yield return new WaitForSeconds(1.5f);
+        target.velocity = Vector2.zero;
+        StopCoroutine(stopForceCoroutine);
     }
 }

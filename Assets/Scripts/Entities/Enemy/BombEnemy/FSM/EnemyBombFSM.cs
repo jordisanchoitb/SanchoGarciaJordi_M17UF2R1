@@ -15,7 +15,8 @@ public class EnemyBombFSM : AEntity, IDrop
     private GameObject gameManager;
     private Slider hpSlider;
     private string droppeable;
-
+    
+    public bool notInRoom = false;
     public float Hp { get => hp; set => hp = value; }
     public AStateSO<EnemyBombFSM> CurrentState { get => currentState; }
     public List<AStateSO<EnemyBombFSM>> States { get => states; }
