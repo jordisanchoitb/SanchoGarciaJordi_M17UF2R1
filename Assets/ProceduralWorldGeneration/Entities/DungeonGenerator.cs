@@ -1,3 +1,4 @@
+using NavMeshPlus.Components;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class DungeonGenerator : MonoBehaviour
     public DungeonGenerationData dungeonGenerationData;
     private List<Vector2Int> dungeonRooms;
     private int counter;
+    [SerializeField] private NavMeshSurface navMeshSurface;
 
     private void Start()
     {

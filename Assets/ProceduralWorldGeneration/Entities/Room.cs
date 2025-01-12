@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -84,19 +85,42 @@ public class Room : MonoBehaviour
             {
                 case DoorC.DoorType.right:
                     if(GetRight() == null)
+                    {
+                        try {
+                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
+                        } catch {}
                         door.gameObject.SetActive(false);
+                    }
                     break;
                 case DoorC.DoorType.left:
                     if (GetLeft() == null)
+                    {
+                        try
+                        {
+                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
+                        } catch { }
                         door.gameObject.SetActive(false);
+                    }
                     break;
                 case DoorC.DoorType.top:
                     if (GetTop() == null)
+                    {
+                        try
+                        {
+                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
+                        } catch { }
                         door.gameObject.SetActive(false);
+                    }
                     break;
                 case DoorC.DoorType.bottom:
                     if (GetBottom() == null)
+                    {
+                        try
+                        {
+                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
+                        } catch { }
                         door.gameObject.SetActive(false);
+                    }
                     break;
             }
         }

@@ -53,5 +53,7 @@ Sprite Key [**Frakassets**](https://frakassets.itch.io/)
 
 Sprite Lock [**Karsiori**](https://karsiori.itch.io/)
 
+Sprites Shop [**Ventilatore**](https://ventilatore.itch.io/)
+
 #### FX
 Sprites fire animations by [**brullov**](https://brullov.itch.io/)

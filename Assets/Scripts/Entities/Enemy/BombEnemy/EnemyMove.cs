@@ -12,7 +12,11 @@ public class EnemyMove : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateUpAxis = false;
         navMeshAgent.updateRotation = false;
-        navMeshAgent.isStopped = true;
+        try
+        {
+            navMeshAgent.isStopped = true;
+        }
+        catch { }
     }
 
     public void Movement(Vector3 targetPosition)

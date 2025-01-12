@@ -5,10 +5,11 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public List<AWeaponSO> weapons = new List<AWeaponSO>();
+    public List<string> obtainedWeapons = new List<string>();
 
     private void Start()
     {
-              
+        obtainedWeapons.Add("Sword");              
     }
 
     public void AddWeapon(AWeaponSO weapon)
