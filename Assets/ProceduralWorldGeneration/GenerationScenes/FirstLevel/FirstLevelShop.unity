@@ -475,6 +475,10 @@ MonoBehaviour:
   imageRifle: {fileID: 2098600008}
   imageGrenadeLauncher: {fileID: 26921139}
   imageFlameThrower: {fileID: 1518695801}
+  purchableWeapons:
+  - {fileID: 11400000, guid: 4b9544c6dfca7b648aff58a14105b1c1, type: 2}
+  - {fileID: 11400000, guid: efc7b62d9cb472a4d99fb3e043867457, type: 2}
+  - {fileID: 11400000, guid: ab7ce1d5942eee34db8e60d5aaabde2f, type: 2}
 --- !u!1 &68178763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1245,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706643977}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1492,7 +1496,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832091952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -7040,7 +7044,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883593540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

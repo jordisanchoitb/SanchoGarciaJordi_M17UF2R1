@@ -7,40 +7,22 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textCostRifle, textCostGrenadeLauncher, textCostFlameThrower;
     [SerializeField] private GameObject imageRifle, imageGrenadeLauncher, imageFlameThrower;
+    [SerializeField] public List<AWeaponSO> purchableWeapons;
     void Start()
     {
-        foreach (AWeaponSO weapon in Player.inventory.weapons)
+        foreach (var weapon in purchableWeapons)
         {
-            if (!Player.inventory.obtainedWeapons.Contains(weapon.Prefab.name))
+            if (weapon is RifleSO)
             {
-
-                switch (weapon.Prefab.name)
-                {
-                    case "Rifle":
-                        textCostRifle.text = weapon.Cost.ToString();
-                        break;
-                    case "GrenadeLauncher":
-                        textCostGrenadeLauncher.text = weapon.Cost.ToString();
-                        break;
-                    case "FlameThrower":
-                        textCostFlameThrower.text = weapon.Cost.ToString();
-                        break;
-                }
+                textCostRifle.text = weapon.Cost.ToString();
             }
-            else
+            else if (weapon is GrenadelauncherSO)
             {
-                switch (weapon.Prefab.name)
-                {
-                    case "Rifle":
-                        imageRifle.SetActive(false);
-                        break;
-                    case "GrenadeLauncher":
-                        imageGrenadeLauncher.SetActive(false);
-                        break;
-                    case "FlameThrower":
-                        imageFlameThrower.SetActive(false);
-                        break;
-                }
+                textCostGrenadeLauncher.text = weapon.Cost.ToString();
+            }
+            else if (weapon is FlameThrowerSO)
+            {
+                textCostFlameThrower.text = weapon.Cost.ToString();
             }
         }
     }

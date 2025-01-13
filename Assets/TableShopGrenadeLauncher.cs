@@ -14,13 +14,12 @@ public class TableShopGrenadeLauncher : MonoBehaviour
     void Start()
     {
         collider2D = GetComponent<Collider2D>();
-        if (!Player.inventory.obtainedWeapons.Contains("GrenadeLauncher"))
+        foreach (AWeaponSO weapon in gameObject.GetComponentInParent<ShopManager>().purchableWeapons)
         {
-            collider2D.enabled = true;
-        }
-        else
-        {
-            collider2D.enabled = false;
+            if (weapon is GrenadelauncherSO)
+            {
+                collider2D.enabled = true;
+            }
         }
         
     }
@@ -37,7 +36,14 @@ public class TableShopGrenadeLauncher : MonoBehaviour
             if (Player.player.countCoints >= Convert.ToInt32(textCost.text))
             {
                 Player.player.countCoints -= Convert.ToInt32(textCost.text);
-                Player.inventory.obtainedWeapons.Add("GrenadeLauncher");
+                for (int i = 0; i < gameObject.GetComponentInParent<ShopManager>().purchableWeapons.Count; i++)
+                {
+                    if (gameObject.GetComponentInParent<ShopManager>().purchableWeapons[i] is GrenadelauncherSO)
+                    {
+                        gameObject.GetComponentInParent<ShopManager>().purchableWeapons.RemoveAt(i);
+                        break;
+                    }
+                }
                 collider2D.enabled = false;
                 imageGrenadeLauncher.SetActive(false);
             }

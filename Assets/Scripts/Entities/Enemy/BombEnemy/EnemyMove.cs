@@ -6,17 +6,13 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     private NavMeshAgent navMeshAgent;
+    private Coroutine retryGetNavMesh;
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateUpAxis = false;
         navMeshAgent.updateRotation = false;
-        try
-        {
-            navMeshAgent.isStopped = true;
-        }
-        catch { }
     }
 
     public void Movement(Vector3 targetPosition)
@@ -29,4 +25,6 @@ public class EnemyMove : MonoBehaviour
     {
         navMeshAgent.isStopped = true;
     }
+
+
 }
