@@ -247,9 +247,9 @@ GameObject:
   - component: {fileID: 121153975}
   - component: {fileID: 121153974}
   - component: {fileID: 121153977}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RightWallGrid
-  m_TagString: Flamethrowe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -649,9 +649,9 @@ GameObject:
   - component: {fileID: 417433412}
   - component: {fileID: 417433411}
   - component: {fileID: 417433414}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TopWallGrid (1)
-  m_TagString: Flamethrowe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1060,9 +1060,9 @@ GameObject:
   - component: {fileID: 502044311}
   - component: {fileID: 502044310}
   - component: {fileID: 502044309}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Floor
-  m_TagString: Flamethrowe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3527,9 +3527,9 @@ GameObject:
   - component: {fileID: 1194098356}
   - component: {fileID: 1194098355}
   - component: {fileID: 1194098358}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: LeftWallGrid (2)
-  m_TagString: Flamethrowe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3929,9 +3929,9 @@ GameObject:
   - component: {fileID: 1284257507}
   - component: {fileID: 1284257506}
   - component: {fileID: 1284257505}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Wall (4)
-  m_TagString: Flamethrowe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5111,9 +5111,9 @@ GameObject:
   - component: {fileID: 1703078072}
   - component: {fileID: 1703078071}
   - component: {fileID: 1703078074}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BottomWallGrid (1)
-  m_TagString: Flamethrowe
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
