@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuEvents : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-       
-    }
-
     public void PlayeLevelEightDirections()
     {
         SceneManager.LoadScene("LevelEightDirections");
@@ -22,7 +12,7 @@ public class MainMenuEvents : MonoBehaviour
 
     public void PlayRogueLike()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("FirstLevelMain");
         if (Player.player != null)
         {
             Player.player.gameObject.SetActive(true);
@@ -33,6 +23,12 @@ public class MainMenuEvents : MonoBehaviour
             GameManager.gameManager.GetComponent<ObjectCoinPool>().Clear();
             GameManager.gameManager.GetComponent<ObjectKeyPool>().Clear();
         }
+        if (RoomController.instance != null)
+        {
+            RoomController.instance.loadedRooms = new List<Room>();
+        }
+        Player.IsPaused = false;
+        Time.timeScale = 1;
     }
 
     public void ExitGame()

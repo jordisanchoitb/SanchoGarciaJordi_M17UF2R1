@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1443032448764563773}
   - component: {fileID: 3389265858276695807}
   - component: {fileID: -3404657530200375461}
+  - component: {fileID: 4462929794343434682}
   m_Layer: 8
   m_Name: BulletEnemy
   m_TagString: Untagged
@@ -136,3 +137,30 @@ MonoBehaviour:
   speed: 10
   damage: 2
   lifeTime: 2
+--- !u!50 &4462929794343434682
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5065588955556717869}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

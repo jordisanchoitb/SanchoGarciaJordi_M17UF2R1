@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Door : MonoBehaviour
             isOpened = true;
             animator.SetTrigger("Open");
             GetComponent<BoxCollider2D>().enabled = false;
+            SceneManager.LoadScene("FirstLevelMain1");
         }
     }
 }

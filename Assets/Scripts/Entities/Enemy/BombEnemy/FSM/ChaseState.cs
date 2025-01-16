@@ -26,15 +26,12 @@ public class ChaseState : AStateSO<EnemyBombFSM>
     public override void OnStateUpdate(EnemyBombFSM entityController)
     {
         enemyMove.Movement(target.transform.position);
-        // Compara la posición del jugador con la posición del objeto
         if (target.transform.position.x > entityController.transform.position.x)
         {
-             // El jugador está a la derecha
              spriteRenderer.flipX = false;
         }
         else
         {
-            // El jugador está a la izquierda
             spriteRenderer.flipX = true;
         }
 

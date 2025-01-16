@@ -26,6 +26,7 @@ public class EnemyBombFSM : AEntity, IDrop
         countCoints = Random.Range(1, 2);
         countKeys = Random.Range(1, 2);
         droppeable = Random.Range(0,2) % 2 == 0 ? "Key" : "Coin";
+        GoToState<IdleState>();
     }
 
     private void Start()

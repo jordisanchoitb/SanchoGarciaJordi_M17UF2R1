@@ -5,6 +5,7 @@ using UnityEngine;
 public class InventoryEvents : MonoBehaviour
 {
     [SerializeField] private List<GameObject> selectedWeapons;
+    [SerializeField] private List<GameObject> bloquedWeapons;
     void Start()
     {
         DesactiveAllSelectWeapons();
@@ -14,6 +15,24 @@ public class InventoryEvents : MonoBehaviour
             {
                 item.SetActive(true);
             }            
+        }
+
+
+        foreach (AWeaponSO weapon in FindAnyObjectByType<ShopManager>().purchableWeapons)
+        {
+            switch (weapon)
+            {
+                case RifleSO rifle:
+                    bloquedWeapons[0].SetActive(true);
+                    break;
+                case GrenadelauncherSO grenade:
+                    bloquedWeapons[1].SetActive(true);
+                    break;
+                case FlameThrowerSO flame:
+                    bloquedWeapons[2].SetActive(true);
+                    break;
+
+            }
         }
     }
 
@@ -26,6 +45,7 @@ public class InventoryEvents : MonoBehaviour
 
     public void EquipRifle()
     {
+        if (IsWeaponBloqued(FindAnyObjectByType<Inventory>().weapons[1])) return;
         FindAnyObjectByType<WeaponManager>().EquipWeapon(FindAnyObjectByType<Inventory>().weapons[1]);
         DesactiveAllSelectWeapons();
         selectedWeapons[1].SetActive(true);
@@ -33,6 +53,7 @@ public class InventoryEvents : MonoBehaviour
 
     public void EquipGrenadeLauncher()
     {
+        if (IsWeaponBloqued(FindAnyObjectByType<Inventory>().weapons[2])) return;
         FindAnyObjectByType<WeaponManager>().EquipWeapon(FindAnyObjectByType<Inventory>().weapons[2]);
         DesactiveAllSelectWeapons();
         selectedWeapons[2].SetActive(true);
@@ -40,6 +61,7 @@ public class InventoryEvents : MonoBehaviour
 
     public void EquipFlameThrower()
     {
+        if (IsWeaponBloqued(FindAnyObjectByType<Inventory>().weapons[3])) return;
         FindAnyObjectByType<WeaponManager>().EquipWeapon(FindAnyObjectByType<Inventory>().weapons[3]);
         DesactiveAllSelectWeapons();
         selectedWeapons[3].SetActive(true);
@@ -51,6 +73,18 @@ public class InventoryEvents : MonoBehaviour
         {
             weapon.SetActive(false);
         }
+    }
+
+    public bool IsWeaponBloqued(AWeaponSO weapon)
+    {
+        foreach (AWeaponSO item in FindAnyObjectByType<ShopManager>().purchableWeapons)
+        {
+            if (item.Prefab.name == weapon.Prefab.name)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

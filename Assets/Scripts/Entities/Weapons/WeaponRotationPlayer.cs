@@ -33,18 +33,14 @@ public class WeaponRotationPlayer : MonoBehaviour
 
     private void Update()
     {
-        // Obtener la posicion del raton
         Vector2 mousePosition = GetMousePosition();
 
-        // Calcular la direccion del raton respecto al jugador
         Vector2 playerPosition = player.transform.position;
         Vector2 direction = (mousePosition - playerPosition).normalized;
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Calcular el angulo interpolado para rotar hacia el raton
         currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, rotationSpeed * Time.deltaTime);
 
-        // Determinar la nueva posicion del arma alrededor del jugador
         float distanceToPlayer = Vector2.Distance(transform.position, playerPosition);
         float radians = currentAngle * Mathf.Deg2Rad;
         Vector2 newPosition = new Vector2(
@@ -52,7 +48,6 @@ public class WeaponRotationPlayer : MonoBehaviour
             playerPosition.y + Mathf.Sin(radians) * distanceToPlayer
         );
 
-        // Rotar el arma para que apunte hacia el raton
         transform.SetPositionAndRotation(newPosition, Quaternion.Euler(0, 0, currentAngle - fixedAngle));
     }
 

@@ -11,15 +11,14 @@ public class Player : AEntity, ICollect
     public static Player player;
     public static AWeaponSO currentWeapon;
     public static Inventory inventory;
-    private Slider healthBar;
-    private TextMeshProUGUI textCountCoins;
-    private TextMeshProUGUI textCountKeys;
-    private Animator animator;
+    [SerializeField] private Slider healthBar;
+    [SerializeField] private TextMeshProUGUI textCountCoins;
+    [SerializeField] private TextMeshProUGUI textCountKeys;
     public static bool IsPaused;
 
     private void OnEnable()
     {
-        if (player != null)
+        if (player != null && Player.player == this)
         {
             player.transform.position = new Vector3(0, 0, 0);
             hp = maxHp;
@@ -28,6 +27,10 @@ public class Player : AEntity, ICollect
             textCountCoins.text = countCoints.ToString();
             countKeys = 0;
             textCountKeys.text = countKeys.ToString();
+            if (GameEventsManager.gameEventsManager != null)
+            {
+                GameEventsManager.gameEventsManager.OnDoorInteracted += CheckKeysForDoor;
+            }
         }
     }
 
@@ -37,9 +40,6 @@ public class Player : AEntity, ICollect
         {
             player = this;
             DontDestroyOnLoad(gameObject);
-            healthBar = GameObject.Find("PlayerHp").GetComponent<Slider>();
-            textCountCoins = GameObject.Find("TextCountCoins").GetComponent<TextMeshProUGUI>();
-            textCountKeys = GameObject.Find("TextCountKeys").GetComponent<TextMeshProUGUI>();
             healthBar.maxValue = hp;
             healthBar.value = hp;
             maxHp = hp;

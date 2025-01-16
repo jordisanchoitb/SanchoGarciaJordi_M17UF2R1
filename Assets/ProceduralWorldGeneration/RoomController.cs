@@ -18,11 +18,11 @@ public class RoomController : MonoBehaviour
 
     string currentWorldName = "FirstLevel";
 
-    RoomInfo currentLoadRoomData;
+    public RoomInfo currentLoadRoomData;
 
     Room currRoom;
 
-    Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
+    public Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
 
 
     public List<Room> loadedRooms = new List<Room>();
@@ -30,6 +30,8 @@ public class RoomController : MonoBehaviour
     bool isLoadingRoom = false;
 
     bool spawnedBossRoom = false;
+
+    bool spawnedShopRoom = false;
 
     bool updatedRooms = false;
 

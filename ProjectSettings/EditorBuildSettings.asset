@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelStart.unity
     guid: 6218c50c7bcfe014d8b70ae20431e949
+  - enabled: 1
+    path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelMain1.unity
+    guid: 6f1437f665a959c45aee4740de2dc785
   m_configObjects: {}

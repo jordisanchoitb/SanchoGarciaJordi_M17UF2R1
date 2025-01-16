@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   fireRate: 5
-  cost: 0
+  cost: 10
   prefab: {fileID: 7434110227496234821, guid: 5de1e2acaef977a4993584fd27ae60bd, type: 3}
   weapon: {fileID: 0}
+  nextFireTime: 0
   distanceLaunch: 10

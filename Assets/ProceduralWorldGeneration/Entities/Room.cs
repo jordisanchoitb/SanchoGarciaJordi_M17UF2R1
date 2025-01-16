@@ -68,7 +68,7 @@ public class Room : MonoBehaviour
 
     void Update()
     {
-        if(name.Contains("end") && !updatedDoors)
+        if(name.Contains("End") && !updatedDoors)
         {
             RemoveUnconnectedDoors();
             updatedDoors = true;
@@ -86,39 +86,29 @@ public class Room : MonoBehaviour
                 case DoorC.DoorType.right:
                     if(GetRight() == null)
                     {
-                        try {
-                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
-                        } catch {}
+                        door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
                         door.gameObject.SetActive(false);
                     }
                     break;
                 case DoorC.DoorType.left:
                     if (GetLeft() == null)
                     {
-                        try
-                        {
-                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
-                        } catch { }
+                       
+                        door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
                         door.gameObject.SetActive(false);
                     }
                     break;
                 case DoorC.DoorType.top:
                     if (GetTop() == null)
                     {
-                        try
-                        {
-                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
-                        } catch { }
+                        door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
                         door.gameObject.SetActive(false);
                     }
                     break;
                 case DoorC.DoorType.bottom:
                     if (GetBottom() == null)
                     {
-                        try
-                        {
-                            door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
-                        } catch { }
+                        door.gameObject.GetComponent<DoorC>().wallColliderHide.SetActive(true);
                         door.gameObject.SetActive(false);
                     }
                     break;
