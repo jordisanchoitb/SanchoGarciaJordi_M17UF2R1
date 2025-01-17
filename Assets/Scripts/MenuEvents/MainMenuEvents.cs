@@ -30,9 +30,4 @@ public class MainMenuEvents : MonoBehaviour
         Player.IsPaused = false;
         Time.timeScale = 1;
     }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
 }

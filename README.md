@@ -18,6 +18,13 @@ RogueLike game
 **Visualització**: top-down
 
 ### Credits
+#### Images
+Image mainmenu by [**user4266146**](https://www.freepik.es/autor/user4266146/) from [**FREEPIK**](https://www.freepik.es/)
+
+Image winmenu by [**IA Bing**](https://www.bing.com/images/create/)
+
+Image diemenu by [**Solarspectra**](https://www.pixiv.net/en/users/103847866/) from [**PIXIV**](https://www.pixiv.net/en/)
+
 #### SFX
 Loop music by [**Sergei Chetvertnykh**](https://pixabay.com/es/users/sergequadrado-24990007/) from [**Pixabay**](https://pixabay.com/sound-effects/)
 
@@ -26,6 +33,8 @@ Collect coin by [**Chieuk**](https://pixabay.com/es/users/chieuk-46505609/) from
 Effect explosion grenade by [**Freesound_community**](https://pixabay.com/es/users/freesound_community-46691455/) from [**Pixabay**](https://pixabay.com/sound-effects/) 
 
 Effect rifle shot by [**Freesound_community**](https://pixabay.com/es/users/freesound_community-46691455/) from [**Pixabay**](https://pixabay.com/sound-effects/) 
+
+Sprites fire animations by [**brullov**](https://brullov.itch.io/)
 
 #### TileSet
 Tile Set by [**RGS_Dev**](https://rgsdev.itch.io/)
@@ -54,6 +63,3 @@ Sprite Key [**Frakassets**](https://frakassets.itch.io/)
 Sprite Lock [**Karsiori**](https://karsiori.itch.io/)
 
 Sprites Shop [**Ventilatore**](https://ventilatore.itch.io/)
-
-#### FX
-Sprites fire animations by [**brullov**](https://brullov.itch.io/)
