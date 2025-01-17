@@ -19,6 +19,7 @@ public class GenericMenuEvents : MonoBehaviour
         RoomController.instance.loadRoomQueue = new Queue<RoomInfo>();
         RoomController.instance.currentLoadRoomData = null;
         SceneManager.LoadSceneAsync("FirstLevelMain");
+        Door.OpenedDoors = 0;
         Player.player.gameObject.SetActive(true);
         Player.IsPaused = false;
         Time.timeScale = 1;

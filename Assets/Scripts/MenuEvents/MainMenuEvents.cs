@@ -27,6 +27,7 @@ public class MainMenuEvents : MonoBehaviour
         {
             RoomController.instance.loadedRooms = new List<Room>();
         }
+        Door.OpenedDoors = 0;
         Player.IsPaused = false;
         Time.timeScale = 1;
     }
