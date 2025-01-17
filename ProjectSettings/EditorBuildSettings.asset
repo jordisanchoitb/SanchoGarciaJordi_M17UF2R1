@@ -34,17 +34,14 @@ EditorBuildSettings:
     guid: c287c6c08db9be54aac0513bb6d084dd
   - enabled: 1
     path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelEnd.unity
-    guid: b0b07228f2fedf346912b843c76565e8
+    guid: cac43a2561fc0e24ea94743947e0c496
   - enabled: 1
     path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelMain.unity
     guid: 291745de4508dc249a52113c2da36558
   - enabled: 1
     path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelShop.unity
-    guid: 23a827b628a66fb4f9f8ca755c514403
+    guid: 475597170a295c34bb78dc4b00f3ba34
   - enabled: 1
     path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelStart.unity
     guid: 6218c50c7bcfe014d8b70ae20431e949
-  - enabled: 1
-    path: Assets/ProceduralWorldGeneration/GenerationScenes/FirstLevel/FirstLevelMain1.unity
-    guid: 6f1437f665a959c45aee4740de2dc785
   m_configObjects: {}
