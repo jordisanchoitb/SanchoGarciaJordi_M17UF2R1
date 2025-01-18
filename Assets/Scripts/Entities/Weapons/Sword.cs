@@ -21,10 +21,8 @@ public class Sword : MonoBehaviour
     {
         if (target == null) return;
 
-        // Calcular la dirección del empuje desde el origen hacia el objeto
         Vector2 pushDirection = (target.position - origin).normalized;
 
-        // Aplicar la fuerza al Rigidbody2D del objeto
         target.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
 
         stopForceCoroutine = StartCoroutine(StopForceObject(target));
