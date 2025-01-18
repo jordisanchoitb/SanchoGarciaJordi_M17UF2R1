@@ -8,12 +8,10 @@ public class ChaseState : AStateSO<EnemyBombFSM>
 {
     private GameObject target;
     private EnemyMove enemyMove;
-    private SpriteRenderer spriteRenderer;
     public override void OnStateEnter(EnemyBombFSM entityController)
     {
         target = GameObject.Find("Player");
         enemyMove = entityController.GetComponent<EnemyMove>();
-        spriteRenderer = entityController.GetComponent<SpriteRenderer>();
         entityController.GetComponent<Animator>().SetBool("PlayerTriggered", true);
     }
 
@@ -28,11 +26,11 @@ public class ChaseState : AStateSO<EnemyBombFSM>
         enemyMove.Movement(target.transform.position);
         if (target.transform.position.x > entityController.transform.position.x)
         {
-             spriteRenderer.flipX = false;
+            entityController.GetComponent<SpriteRenderer>().flipX = false;
         }
         else
         {
-            spriteRenderer.flipX = true;
+            entityController.GetComponent<SpriteRenderer>().flipX = true;
         }
 
     }

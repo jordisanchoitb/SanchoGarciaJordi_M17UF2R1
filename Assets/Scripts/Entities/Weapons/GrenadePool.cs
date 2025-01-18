@@ -41,4 +41,9 @@ public class GrenadePool : MonoBehaviour
         grenade.SetActive(false);
         grenadesPool.Push(grenade);
     }
+
+    public void Clear()
+    {
+        grenadesPool.Clear();
+    }
 }

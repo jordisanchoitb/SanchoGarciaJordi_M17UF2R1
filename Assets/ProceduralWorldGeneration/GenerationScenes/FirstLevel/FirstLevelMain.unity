@@ -1580,6 +1580,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4b9544c6dfca7b648aff58a14105b1c1, type: 2}
   - {fileID: 11400000, guid: efc7b62d9cb472a4d99fb3e043867457, type: 2}
   - {fileID: 11400000, guid: ab7ce1d5942eee34db8e60d5aaabde2f, type: 2}
+  weaponsGetted: []
 --- !u!114 &540282794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4116,7 +4117,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_UseGeometry: 0
-  m_DefaultArea: 0
+  m_DefaultArea: 1
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
@@ -4275,7 +4276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2126537432
 Transform:
   m_ObjectHideFlags: 0

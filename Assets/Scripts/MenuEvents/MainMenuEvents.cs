@@ -18,17 +18,20 @@ public class MainMenuEvents : MonoBehaviour
             GameManager.gameManager.GetComponent<ObjectCoinPool>().Clear();
             GameManager.gameManager.GetComponent<ObjectKeyPool>().Clear();
         }
-        if (RoomController.instance != null)
-        {
-            RoomController.instance.loadedRooms = new List<Room>();
-            RoomController.instance.loadRoomQueue = new Queue<RoomInfo>();
-            RoomController.instance.currentLoadRoomData = null;
-        }
         SceneManager.LoadScene("FirstLevelMain");
         if (Player.player != null)
         {
             Player.player.gameObject.SetActive(true);
             Player.player.transform.position = Vector2.zero;
+            if (Player.player.GetComponentInChildren<BulletPool>() != null)
+            {
+                Player.player.GetComponentInChildren<BulletPool>().Clear();
+            }
+            if (Player.player.GetComponentInChildren<GrenadePool>() != null)
+            {
+                Player.player.GetComponentInChildren<GrenadePool>().Clear();
+            }
+            Player.inventory.ResetGettedWeapons();
         }
         Door.OpenedDoors = 0;
         Player.IsPaused = false;

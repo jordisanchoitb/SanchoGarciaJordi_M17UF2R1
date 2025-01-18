@@ -12,15 +12,10 @@ public class Inventory : MonoBehaviour
         weaponsGetted.Add("Sword");
     }
 
-    public void AddWeapon(AWeaponSO weapon)
+    public void ResetGettedWeapons()
     {
-        weapons.Add(weapon);
-    }
-
-    public void ResetInventoryDefault()
-    {
-        weapons.Clear();
-
+        weaponsGetted.Clear();
+        weaponsGetted.Add("Sword");
     }
 
 

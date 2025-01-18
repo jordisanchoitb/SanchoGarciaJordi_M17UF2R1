@@ -52,5 +52,13 @@ public class Door : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("FirstLevelMain");
         Player.player.transform.position = Vector2.zero;
+        if (Player.player.GetComponentInChildren<BulletPool>() != null)
+        {
+            Player.player.GetComponentInChildren<BulletPool>().Clear();
+        }
+        if (Player.player.GetComponentInChildren<GrenadePool>() != null)
+        {
+            Player.player.GetComponentInChildren<GrenadePool>().Clear();
+        }
     }
 }
