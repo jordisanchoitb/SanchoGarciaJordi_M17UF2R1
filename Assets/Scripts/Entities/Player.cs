@@ -11,11 +11,12 @@ public class Player : AEntity, ICollect
     public static Player player;
     public static AWeaponSO currentWeapon;
     public static Inventory inventory;
+    public static bool IsPaused;
+    public static bool IsInventoryOpen;
+    public static bool IsLoading;
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI textCountCoins;
     [SerializeField] private TextMeshProUGUI textCountKeys;
-    public static bool IsPaused;
-    public static bool IsInventoryOpen;
 
     private void OnEnable()
     {

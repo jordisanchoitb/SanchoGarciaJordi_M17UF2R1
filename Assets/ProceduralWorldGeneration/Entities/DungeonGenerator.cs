@@ -14,6 +14,8 @@ public class DungeonGenerator : MonoBehaviour
     {
         dungeonRooms = DungeonCrawlerController.GenerateDungeon(dungeonGenerationData);
         SpawnRooms(dungeonRooms);
+        Player.IsLoading = true;
+        Time.timeScale = 0;
     }
 
     private void SpawnRooms(IEnumerable<Vector2Int> rooms)

@@ -84,6 +84,8 @@ public class RoomController : MonoBehaviour
                 UpdateRooms();
                 updatedRooms = true;
                 FindAnyObjectByType<NavegationBake>().BakeNavMesh();
+                Player.IsLoading = false;
+                Time.timeScale = 1;
             }
             return;
         }

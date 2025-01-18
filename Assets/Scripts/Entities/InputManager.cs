@@ -41,13 +41,12 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
 
     public void Movement()
     {
-        if (Player.IsInventoryOpen)
-            return;
         rigidBody.MovePosition(rigidBody.position + speed * Time.deltaTime * inputMovement.normalized);
     }
 
     public void OnInventory(InputAction.CallbackContext context)
     {
+        if (Player.IsLoading) return;
         if (context.started)
         {
             if (Player.IsInventoryOpen)
@@ -67,6 +66,7 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
 
     public void OnPause(InputAction.CallbackContext context)
     {
+        if (Player.IsLoading) return;
         if (context.started)
         {
             if (Player.IsInventoryOpen)
