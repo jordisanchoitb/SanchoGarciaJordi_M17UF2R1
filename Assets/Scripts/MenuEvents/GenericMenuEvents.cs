@@ -26,6 +26,7 @@ public class GenericMenuEvents : MonoBehaviour
             Player.player.GetComponentInChildren<GrenadePool>().Clear();
         }
         Player.inventory.ResetGettedWeapons();
+        Player.player.GetComponent<WeaponManager>().ResetDefaultWeaponActive();
         Player.IsPaused = false;
         Door.OpenedDoors = 0;
         Time.timeScale = 1;

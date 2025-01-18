@@ -5,23 +5,15 @@ using UnityEngine;
 
 public class NavegationBake : MonoBehaviour
 {
-    private const float delayTime = 1f;
-
     private NavMeshSurface navMeshSurface;
 
     private void Start()
     {
         navMeshSurface = GetComponent<NavMeshSurface>();
-        StartCoroutine(DelayedBaking(delayTime));
+        navMeshSurface.navMeshData = null;
     }
 
-    private IEnumerator DelayedBaking(float time)
-    {
-        yield return new WaitForSeconds(time);
-        BakeNavMesh();
-    }
-
-    private void BakeNavMesh()
+    public void BakeNavMesh()
     {
         navMeshSurface.BuildNavMesh();
     }

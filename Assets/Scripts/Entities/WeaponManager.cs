@@ -67,4 +67,10 @@ public class WeaponManager : MonoBehaviour, PlayerControlers.IWeaponActions
             weaponSO.Stop();
         }
     }
+
+    public void ResetDefaultWeaponActive()
+    {
+        weaponSO.Weapon.SetActive(false);
+        EquipWeapon(Player.inventory.weapons[0]);
+    }
 }

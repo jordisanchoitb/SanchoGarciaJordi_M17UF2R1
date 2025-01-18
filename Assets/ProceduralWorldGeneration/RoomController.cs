@@ -83,6 +83,7 @@ public class RoomController : MonoBehaviour
                 }
                 UpdateRooms();
                 updatedRooms = true;
+                FindAnyObjectByType<NavegationBake>().BakeNavMesh();
             }
             return;
         }
