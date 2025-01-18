@@ -12,7 +12,6 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
     private PlayerControlers pControlers;
     private Rigidbody2D rigidBody;
     [NonSerialized] public Vector2 inputMovement;
-    public bool isInventoryOpen;
 
     private void Awake()
     {
@@ -42,7 +41,7 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
 
     public void Movement()
     {
-        if (isInventoryOpen)
+        if (Player.IsInventoryOpen)
             return;
         rigidBody.MovePosition(rigidBody.position + speed * Time.deltaTime * inputMovement.normalized);
     }
@@ -51,17 +50,17 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
     {
         if (context.started)
         {
-            if (isInventoryOpen)
+            if (Player.IsInventoryOpen)
             {
                 SceneManager.UnloadSceneAsync("InventoryScene");
                 Time.timeScale = 1;
-                isInventoryOpen = false;
+                Player.IsInventoryOpen = false;
             }
             else
             {
                 SceneManager.LoadScene("InventoryScene", LoadSceneMode.Additive);
                 Time.timeScale = 0;
-                isInventoryOpen = true;
+                Player.IsInventoryOpen = true;
             }
         }
     }
@@ -70,11 +69,11 @@ public class InputManager : MonoBehaviour, PlayerControlers.IPlayerActions, IMov
     {
         if (context.started)
         {
-            if (isInventoryOpen)
+            if (Player.IsInventoryOpen)
             {
                 SceneManager.UnloadSceneAsync("InventoryScene");
                 Time.timeScale = 1;
-                isInventoryOpen = false;
+                Player.IsInventoryOpen = false;
             } else
             {
                 if (Player.IsPaused)

@@ -56,6 +56,7 @@ public class WeaponManager : MonoBehaviour, PlayerControlers.IWeaponActions
 
     public void OnShoot(InputAction.CallbackContext context)
     {
+        if (Player.IsInventoryOpen || Player.IsPaused) return;
         if (!context.canceled || context.performed)
         {
             weaponSO.Shoot();

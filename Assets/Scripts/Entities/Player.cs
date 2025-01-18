@@ -15,6 +15,7 @@ public class Player : AEntity, ICollect
     [SerializeField] private TextMeshProUGUI textCountCoins;
     [SerializeField] private TextMeshProUGUI textCountKeys;
     public static bool IsPaused;
+    public static bool IsInventoryOpen;
 
     private void OnEnable()
     {
@@ -44,6 +45,7 @@ public class Player : AEntity, ICollect
             healthBar.value = hp;
             maxHp = hp;
             IsPaused = false;
+            IsInventoryOpen = false;
 
             if (GameEventsManager.gameEventsManager != null)
             {

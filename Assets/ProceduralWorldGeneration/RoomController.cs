@@ -40,6 +40,14 @@ public class RoomController : MonoBehaviour
         instance = this;
     }
 
+    private void OnDestroy()
+    {
+        instance = null;
+        loadedRooms = new List<Room>();
+        loadRoomQueue = new Queue<RoomInfo>();
+        currentLoadRoomData = null;
+    }
+
     private void Start()
     {
     }

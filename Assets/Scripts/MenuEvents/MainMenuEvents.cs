@@ -12,11 +12,6 @@ public class MainMenuEvents : MonoBehaviour
 
     public void PlayRogueLike()
     {
-        SceneManager.LoadScene("FirstLevelMain");
-        if (Player.player != null)
-        {
-            Player.player.gameObject.SetActive(true);
-        }
         if (GameManager.gameManager != null)
         {
             GameManager.gameManager.GetComponent<BulletPool>().Clear();
@@ -26,6 +21,14 @@ public class MainMenuEvents : MonoBehaviour
         if (RoomController.instance != null)
         {
             RoomController.instance.loadedRooms = new List<Room>();
+            RoomController.instance.loadRoomQueue = new Queue<RoomInfo>();
+            RoomController.instance.currentLoadRoomData = null;
+        }
+        SceneManager.LoadScene("FirstLevelMain");
+        if (Player.player != null)
+        {
+            Player.player.gameObject.SetActive(true);
+            Player.player.transform.position = Vector2.zero;
         }
         Door.OpenedDoors = 0;
         Player.IsPaused = false;

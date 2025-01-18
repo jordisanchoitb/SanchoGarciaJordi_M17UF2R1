@@ -51,5 +51,6 @@ public class Door : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("FirstLevelMain");
+        Player.player.transform.position = Vector2.zero;
     }
 }
