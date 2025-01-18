@@ -20,18 +20,17 @@ public class InventoryEvents : MonoBehaviour
 
         foreach (AWeaponSO weapon in FindAnyObjectByType<ShopManager>().purchableWeapons)
         {
-            switch (weapon)
+            if (weapon is RifleSO && !FindAnyObjectByType<Inventory>().weaponsGetted.Contains(weapon.Prefab.name))
             {
-                case RifleSO rifle:
-                    bloquedWeapons[0].SetActive(true);
-                    break;
-                case GrenadelauncherSO grenade:
-                    bloquedWeapons[1].SetActive(true);
-                    break;
-                case FlameThrowerSO flame:
-                    bloquedWeapons[2].SetActive(true);
-                    break;
-
+                bloquedWeapons[0].SetActive(true);
+            }
+            else if (weapon is GrenadelauncherSO && !FindAnyObjectByType<Inventory>().weaponsGetted.Contains(weapon.Prefab.name))
+            {
+                bloquedWeapons[1].SetActive(true);
+            }
+            else if (weapon is FlameThrowerSO && !FindAnyObjectByType<Inventory>().weaponsGetted.Contains(weapon.Prefab.name))
+            {
+                bloquedWeapons[2].SetActive(true);
             }
         }
     }
@@ -77,14 +76,11 @@ public class InventoryEvents : MonoBehaviour
 
     public bool IsWeaponBloqued(AWeaponSO weapon)
     {
-        foreach (AWeaponSO item in FindAnyObjectByType<ShopManager>().purchableWeapons)
+        if (FindAnyObjectByType<Inventory>().weaponsGetted.Contains(weapon.Prefab.name))
         {
-            if (item.Prefab.name == weapon.Prefab.name)
-            {
-                return true;
-            }
+            return false;
         }
-        return false;
+        return true;
     }
 
 }

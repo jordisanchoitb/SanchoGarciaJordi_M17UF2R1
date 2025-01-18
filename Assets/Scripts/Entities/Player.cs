@@ -46,7 +46,7 @@ public class Player : AEntity, ICollect
             maxHp = hp;
             IsPaused = false;
             IsInventoryOpen = false;
-
+            inventory = GetComponent<Inventory>();
             if (GameEventsManager.gameEventsManager != null)
             {
                 GameEventsManager.gameEventsManager.OnDoorInteracted += CheckKeysForDoor;

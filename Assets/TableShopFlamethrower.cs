@@ -16,7 +16,7 @@ public class TableShopFlamethrower : MonoBehaviour
         collider2D = GetComponent<Collider2D>();
         foreach (AWeaponSO weapon in gameObject.GetComponentInParent<ShopManager>().purchableWeapons)
         {
-            if (weapon is FlameThrowerSO)
+            if (weapon is FlameThrowerSO && !Player.inventory.weaponsGetted.Contains(weapon.Prefab.name))
             {
                 collider2D.enabled = true;
             }
@@ -32,17 +32,10 @@ public class TableShopFlamethrower : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Player.player.countCoints >= Convert.ToInt32(textCost.text))
+            if (Player.player.countCoints >= Convert.ToInt32(textCost.text) && !Player.inventory.weaponsGetted.Contains("Flamethrower"))
             {
                 Player.player.countCoints -= Convert.ToInt32(textCost.text);
-                for (int i = 0; i < gameObject.GetComponentInParent<ShopManager>().purchableWeapons.Count; i++)
-                {
-                    if (gameObject.GetComponentInParent<ShopManager>().purchableWeapons[i] is FlameThrowerSO)
-                    {
-                        gameObject.GetComponentInParent<ShopManager>().purchableWeapons.RemoveAt(i);
-                        break;
-                    }
-                }
+                Player.inventory.weaponsGetted.Add("Flamethrower");
                 collider2D.enabled = false;
                 imageFlameThrower.SetActive(false);
             }

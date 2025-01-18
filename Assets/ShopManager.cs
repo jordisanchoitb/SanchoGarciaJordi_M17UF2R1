@@ -12,17 +12,33 @@ public class ShopManager : MonoBehaviour
     {
         foreach (var weapon in purchableWeapons)
         {
-            if (weapon is RifleSO)
+            if (weapon is RifleSO && !Player.inventory.weaponsGetted.Contains(weapon.Prefab.name))
             {
                 textCostRifle.text = weapon.Cost.ToString();
             }
-            else if (weapon is GrenadelauncherSO)
+            else if (weapon is GrenadelauncherSO && !Player.inventory.weaponsGetted.Contains(weapon.Prefab.name))
             {
                 textCostGrenadeLauncher.text = weapon.Cost.ToString();
             }
-            else if (weapon is FlameThrowerSO)
+            else if (weapon is FlameThrowerSO && !Player.inventory.weaponsGetted.Contains(weapon.Prefab.name))
             {
                 textCostFlameThrower.text = weapon.Cost.ToString();
+            }
+
+            if (Player.inventory.weaponsGetted.Contains(weapon.Prefab.name))
+            {
+                if (weapon is RifleSO)
+                {
+                    imageRifle.SetActive(false);
+                }
+                else if (weapon is GrenadelauncherSO)
+                {
+                    imageGrenadeLauncher.SetActive(false);
+                }
+                else if (weapon is FlameThrowerSO)
+                {
+                    imageFlameThrower.SetActive(false);
+                }
             }
         }
     }
