@@ -13,9 +13,9 @@ public class EnemyBombFSM : AEntity, IDrop
     [SerializeField] private LayerMask damageableLayers;
     
     private GameObject gameManager;
-    private Slider hpSlider;
     private string droppeable;
     
+    public GameObject hpSlider;
     public bool notInRoom = false;
     public float Hp { get => hp; set => hp = value; }
     public AStateSO<EnemyBombFSM> CurrentState { get => currentState; }
@@ -23,17 +23,19 @@ public class EnemyBombFSM : AEntity, IDrop
 
     private void OnEnable()
     {
-        countCoints = Random.Range(1, 2);
-        countKeys = Random.Range(1, 2);
+        countCoints = Random.Range(1, 4);
+        countKeys = Random.Range(1, 3);
         droppeable = Random.Range(0,2) % 2 == 0 ? "Key" : "Coin";
         GoToState<IdleState>();
+        if (hpSlider != null)
+            hpSlider.SetActive(false);
     }
 
     private void Start()
     {
-        hpSlider = GetComponentInChildren<Slider>();
-        hpSlider.maxValue = this.Hp;
-        hpSlider.value = this.Hp;
+        hpSlider.SetActive(false);
+        hpSlider.GetComponent<Slider>().maxValue = this.Hp;
+        hpSlider.GetComponent<Slider>().value = this.Hp;
         gameManager = GameObject.Find("GameManager");
     }
 
@@ -86,8 +88,9 @@ public class EnemyBombFSM : AEntity, IDrop
 
     public override void Hurt(float damage)
     {
+        hpSlider.SetActive(true);
         hp -= damage;
-        hpSlider.value = hp;
+        hpSlider.GetComponent<Slider>().value = hp;
 
         if (hp <= 0)
         {

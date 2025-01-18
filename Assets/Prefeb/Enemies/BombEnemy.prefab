@@ -321,6 +321,8 @@ MonoBehaviour:
   damageableLayers:
     serializedVersion: 2
     m_Bits: 4
+  hpSlider: {fileID: 9012723172026431627}
+  notInRoom: 0
 --- !u!1 &5068681871532088987
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +500,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
 --- !u!1 &8427340997251911270
 GameObject:
   m_ObjectHideFlags: 0

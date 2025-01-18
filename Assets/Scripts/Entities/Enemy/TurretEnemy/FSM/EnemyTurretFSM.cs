@@ -10,10 +10,10 @@ public class EnemyTurretFSM : AEntity
     [SerializeField] private AStateSO<EnemyTurretFSM> currentState;
 
     private GameObject gameManager;
-    private Slider hpSlider;
     private string droppeable;
     private Coroutine stopForceCoroutine;
 
+    public GameObject hpSlider;
     public bool notInRoom = false;
     public float Hp { get => hp; set => hp = value; }
     public AStateSO<EnemyTurretFSM> CurrentState { get => currentState; }
@@ -21,17 +21,19 @@ public class EnemyTurretFSM : AEntity
 
     private void OnEnable()
     {
-        countCoints = Random.Range(1, 2);
-        countKeys = Random.Range(0, 1);
+        countCoints = Random.Range(1, 4);
+        countKeys = Random.Range(1, 3);
         droppeable = Random.Range(0, 2) % 2 == 0 ? "Key" : "Coin";
+        if (hpSlider != null)
+            hpSlider.SetActive(false);
 
     }
 
     private void Start()
     {
-        hpSlider = GetComponentInChildren<Slider>();
-        hpSlider.maxValue = this.Hp;
-        hpSlider.value = this.Hp;
+        hpSlider.SetActive(false);
+        hpSlider.GetComponent<Slider>().maxValue = this.Hp;
+        hpSlider.GetComponent<Slider>().value = this.Hp;
         gameManager = GameObject.Find("GameManager");
         
     }
@@ -65,8 +67,9 @@ public class EnemyTurretFSM : AEntity
 
     public override void Hurt(float damage)
     {
+        hpSlider.SetActive(true);
         hp -= damage;
-        hpSlider.value = hp;
+        hpSlider.GetComponent<Slider>().value = hp;
 
         if (hp <= 0)
         {
