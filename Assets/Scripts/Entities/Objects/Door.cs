@@ -45,6 +45,7 @@ public class Door : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene("WinMenu");
+        Player.player.gameObject.SetActive(false);
     }
 
     private IEnumerator LoadNewLevel()
@@ -59,6 +60,18 @@ public class Door : MonoBehaviour
         if (Player.player.GetComponentInChildren<GrenadePool>() != null)
         {
             Player.player.GetComponentInChildren<GrenadePool>().Clear();
+        }
+        if (GameManager.gameManager.GetComponent<ObjectCoinPool>() != null)
+        {
+            GameManager.gameManager.GetComponent<ObjectCoinPool>().Clear();
+        }
+        if (GameManager.gameManager.GetComponent<ObjectKeyPool>() != null)
+        {
+            GameManager.gameManager.GetComponent<ObjectKeyPool>().Clear();
+        }
+        if (GameManager.gameManager.GetComponent<BulletPool>() != null)
+        {
+            GameManager.gameManager.GetComponent<BulletPool>().Clear();
         }
     }
 }
