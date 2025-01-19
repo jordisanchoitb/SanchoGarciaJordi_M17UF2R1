@@ -29,7 +29,7 @@ public class ParallaxLoopFull : MonoBehaviour
             spriteRenderer = GetComponent<SpriteRenderer>();
             if (spriteRenderer != null)
             {
-                spriteWidth = spriteRenderer.bounds.size.x - 0.1f;
+                spriteWidth = spriteRenderer.bounds.size.x - 0.05f;
                 spriteHeight = spriteRenderer.bounds.size.y;
             }
             else

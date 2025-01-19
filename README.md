@@ -48,18 +48,22 @@ Sprite firearms by [**VladPenn**](https://vladpenn.itch.io/)
 
 Sprite swords by [**everlyspixelsandpens**](https://evanwritesgames.itch.io/)
 
-Sprite swords dash animations [**SpikerMan**](https://spikerman.itch.io/)
+Sprite swords dash animations by [**SpikerMan**](https://spikerman.itch.io/)
 
-Sprite Bomb Character [**Caz Creates Games**](https://caz-creates-games.itch.io/)
+Sprite Bomb Character by [**Caz Creates Games**](https://caz-creates-games.itch.io/)
 
-Sprite Turret Character [**Deep Dive Game Studio**](https://deepdivegamestudio.itch.io/)
+Sprite Turret Character by [**Deep Dive Game Studio**](https://deepdivegamestudio.itch.io/)
 
-Sprite Arrow Enemy [**Kenam0**](https://kenam0.itch.io/)
+Sprite Arrow Enemy by [**Kenam0**](https://kenam0.itch.io/)
 
-Sprite Coin [**SnowHex**](https://snowhex.itch.io)
+Sprite Coin by [**SnowHex**](https://snowhex.itch.io)
 
-Sprite Key [**Frakassets**](https://frakassets.itch.io/)
+Sprite Key by [**Frakassets**](https://frakassets.itch.io/)
 
-Sprite Lock [**Karsiori**](https://karsiori.itch.io/)
+Sprite Lock by [**Karsiori**](https://karsiori.itch.io/)
 
-Sprites Shop [**Ventilatore**](https://ventilatore.itch.io/)
+Sprites Shop by [**Ventilatore**](https://ventilatore.itch.io/)
+
+#### Parallax
+
+Parallax caves by [**SlashDashGamesStudio**](https://slashdashgamesstudio.itch.io/)
