@@ -17,6 +17,10 @@ RogueLike game
 
 **Visualització**: top-down
 
+### Diagrama de clases   
+     
+![**Diagrama de clases Roguelike**](./ClassDiagram_RogueLike.png)
+     
 ### Credits
 #### Images
 Image mainmenu by [**user4266146**](https://www.freepik.es/autor/user4266146/) from [**FREEPIK**](https://www.freepik.es/)
