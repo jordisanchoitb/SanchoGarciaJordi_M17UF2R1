@@ -4106,6 +4106,7 @@ MonoBehaviour:
   weaponsGetted:
   - Sword
   - Rifle
+  - Flamethrower
 --- !u!1 &1661394180
 GameObject:
   m_ObjectHideFlags: 0
