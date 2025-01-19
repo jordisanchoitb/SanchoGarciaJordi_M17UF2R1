@@ -37,6 +37,7 @@ public class TableShopGrenadeLauncher : MonoBehaviour
             {
                 Player.player.countCoints -= Convert.ToInt32(textCost.text);
                 Player.inventory.weaponsGetted.Add("Grenadelauncher");
+                Player.player.UpdateTextCoints();
                 collider2D.enabled = false;
                 imageGrenadeLauncher.SetActive(false);
             }

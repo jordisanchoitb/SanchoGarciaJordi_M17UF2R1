@@ -34,6 +34,7 @@ public class TableShopRifle : MonoBehaviour
             {
                 Player.player.countCoints -= Convert.ToInt32(textCost.text);
                 Player.inventory.weaponsGetted.Add("Rifle");
+                Player.player.UpdateTextCoints();
                 collider2D.enabled = false;
                 imageRifle.SetActive(false);
             }

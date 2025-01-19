@@ -36,6 +36,7 @@ public class TableShopFlamethrower : MonoBehaviour
             {
                 Player.player.countCoints -= Convert.ToInt32(textCost.text);
                 Player.inventory.weaponsGetted.Add("Flamethrower");
+                Player.player.UpdateTextCoints();
                 collider2D.enabled = false;
                 imageFlameThrower.SetActive(false);
             }

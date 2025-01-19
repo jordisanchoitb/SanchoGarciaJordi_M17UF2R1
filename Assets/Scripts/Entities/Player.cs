@@ -67,6 +67,11 @@ public class Player : AEntity, ICollect
         }
     }
 
+    public void UpdateTextCoints()
+    {
+        textCountCoins.text = countCoints.ToString();
+    }
+
     public override void Hurt(float damage)
     {
         hp -= damage;
