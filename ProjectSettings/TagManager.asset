@@ -3,19 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sword
+  - Flamethrower
+  - Rifle
+  - Grenadelauncher
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Proyectile
+  - Obstacle
+  - EnemyBullet
+  - Sword
+  - EnemyVision
   - 
   - 
   - 

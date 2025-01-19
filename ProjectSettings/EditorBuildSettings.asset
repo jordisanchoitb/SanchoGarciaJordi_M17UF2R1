@@ -6,6 +6,42 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Menus/MainMenu.unity
+    guid: 448221b1c6d4a0d4498d07c107f2e2c7
+  - enabled: 1
+    path: Assets/Scenes/FirstLevelTest.unity
+    guid: eaf1fcfdb7225e949a6525535ea49775
+  - enabled: 1
+    path: Assets/Scenes/InventoryScene.unity
+    guid: 3a52c339364952746af4e894072a8285
+  - enabled: 1
+    path: Assets/Scenes/Menus/PauseMenuScene.unity
+    guid: b6c422668e6b7194c87bb9b5f837fe8b
+  - enabled: 1
+    path: Assets/Scenes/Menus/WinMenu.unity
+    guid: 037511227057a6f448c82e53e02a0a77
+  - enabled: 1
+    path: Assets/Scenes/Menus/DieMenu.unity
+    guid: ce05c012b31c6bb46a1ef36b0afdd85e
+  - enabled: 1
+    path: Assets/Scenes/LevelEightDirections.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel/FirstLevelBasic.unity
+    guid: 45c96b1474e548a4f85b7183545fbf52
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel/FirstLevelEmpty.unity
+    guid: c287c6c08db9be54aac0513bb6d084dd
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel/FirstLevelEnd.unity
+    guid: cac43a2561fc0e24ea94743947e0c496
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel/FirstLevelMain.unity
+    guid: 291745de4508dc249a52113c2da36558
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel/FirstLevelShop.unity
+    guid: 475597170a295c34bb78dc4b00f3ba34
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel/FirstLevelStart.unity
+    guid: 6218c50c7bcfe014d8b70ae20431e949
   m_configObjects: {}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b99198169894740a9ee6e415a1a4d3, type: 3}
+  m_Name: GrenadelauncherSO
+  m_EditorClassIdentifier: 
+  damage: 0
+  fireRate: 5
+  cost: 10
+  prefab: {fileID: 7434110227496234821, guid: 5de1e2acaef977a4993584fd27ae60bd, type: 3}
+  weapon: {fileID: 0}
+  nextFireTime: 0
+  distanceLaunch: 10
