@@ -94,8 +94,8 @@ public class EnemyBombFSM : AEntity, IDrop
 
         if (hp <= 0)
         {
-            GoToState<DieState>();
             Drop();
+            GoToState<DieState>();
         }
     }
 
